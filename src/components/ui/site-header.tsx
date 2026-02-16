@@ -4,6 +4,7 @@ import { SidebarIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { useSidebar } from "@/components/ui/sidebar";
+import DashboardUserBox from "../shared/DashboardUserBox";
 
 export function SiteHeader() {
   const { toggleSidebar } = useSidebar();
@@ -13,7 +14,7 @@ export function SiteHeader() {
       className="sticky top-0 z-50 flex w-full items-center"
       style={{
         background:
-          "linear-gradient(270.09deg, #E5BEEE -48.78%, #EEF6FF 132.36%)",
+          "linear-gradient(90.05deg, #D4A574 -64.03%, #FFFFFF 135.56%)",
       }}>
       <div className="flex h-18 w-full items-center justify-between md:justify-end gap-2 px-4">
         <Button
@@ -24,8 +25,7 @@ export function SiteHeader() {
           <SidebarIcon />
         </Button>
 
-        {/* Logo */}
-        <span className="text-lg font-bold">Amen</span>
+        <DashboardUserBox />
       </div>
     </header>
   );
