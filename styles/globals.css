@@ -37,6 +37,7 @@
 .font-merriweather {
   font-family: var(--font-merriweather), Georgia, serif;
 }
+
 /* 
 @media (prefers-color-scheme: dark) {
   :root {
