@@ -11,10 +11,16 @@ import {
   SidebarMenuButton,
   SidebarHeader,
 } from "@/components/ui/sidebar";
-import { LayoutDashboard, User, FileText, Shield, LogOut } from "lucide-react";
+import {
+  LayoutDashboard,
+  User,
+  FileText,
+  Shield,
+  LogOut,
+  Heading,
+} from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Logo from "@/components/shared/Logo";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const pathname = usePathname();
@@ -44,12 +50,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   ];
 
   return (
-    <Sidebar
-      className="top-(--header-height) h-[calc(100svh-var(--header-height))]!"
-      {...props}>
+    <Sidebar {...props}>
       <SidebarContent>
         <SidebarHeader className="md:hidden ml-2">
-          <Logo />
+          <Heading />
         </SidebarHeader>
         <SidebarMenu className="gap-3 px-2 py-4">
           {navigationItems.map((item) => {
@@ -60,7 +64,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   size="lg"
                   asChild
                   isActive={isActive}
-                  className="hover:bg-accent hover:text-accent-foreground transition-colors data-[active=true]:bg-[#A825C7] data-[active=true]:text-white font-medium  text-gray-700">
+                  className="hover:bg-accent hover:text-accent-foreground transition-colors data-[active=true]:bg-[#C5A065] data-[active=true]:text-white font-medium  text-gray-700">
                   <Link
                     href={item.href}
                     className="flex items-center gap-3 p-4">
