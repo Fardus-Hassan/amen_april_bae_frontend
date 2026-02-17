@@ -13,13 +13,7 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+
 import {
   Table,
   TableBody,
@@ -116,18 +110,6 @@ const Overview = () => {
           </h2>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
-            {/* Sort By */}
-            <Select defaultValue="date">
-              <SelectTrigger className="w-full sm:w-[140px] md:w-[160px] bg-white rounded-full border-gray-200 h-9 sm:h-10">
-                <SelectValue placeholder="Sort By Date" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="date">Sort By Date</SelectItem>
-                <SelectItem value="title">Sort By Title</SelectItem>
-                <SelectItem value="type">Sort By Type</SelectItem>
-              </SelectContent>
-            </Select>
-
             {/* Search */}
             <div className="relative w-full sm:w-[200px] md:w-[280px]">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
