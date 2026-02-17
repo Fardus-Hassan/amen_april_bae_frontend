@@ -4,6 +4,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import PageTitle from "@/components/shared/PageTitle";
 import AdminInfoContent from "./AdminInfoContent";
+import SuspendedUsers from "./SuspendedUsers";
+import AdminManagement from "./AdminManagement";
 
 // ---------- Tab trigger shared styles ----------
 const tabClass = [
@@ -37,10 +39,10 @@ export default function AdminSettingsContent() {
           <AdminInfoContent />
         </TabsContent>
         <TabsContent value="suspended-users">
-          <h1>adegqerghr</h1>
+          <SuspendedUsers />
         </TabsContent>
         <TabsContent value="admin-management">
-          <h1>avdfbvdf</h1>
+          <AdminManagement />
         </TabsContent>
       </Tabs>
     </div>
