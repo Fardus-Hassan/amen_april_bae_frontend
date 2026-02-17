@@ -15,44 +15,48 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 
 const weeklyData = [
-  { day: "Fri", documents: 25000 },
-  { day: "Sat", documents: 45000 },
-  { day: "Sun", documents: 95000 },
-  { day: "Mon", documents: 75000 },
-  { day: "Tue", documents: 50000 },
-  { day: "Wed", documents: 35000 },
-  { day: "Thu", documents: 65000 },
+  { day: "Fri", users: 15000, experts: 10000, revenue: 500 },
+  { day: "Sat", users: 30000, experts: 15000, revenue: 500 },
+  { day: "Sun", users: 65000, experts: 30000, revenue: 500 },
+  { day: "Mon", users: 50000, experts: 25000, revenue: 500 },
+  { day: "Tue", users: 35000, experts: 15000, revenue: 500 },
+  { day: "Wed", users: 22000, experts: 13000, revenue: 500 },
+  { day: "Thu", users: 45000, experts: 20000, revenue: 500 },
 ];
 
 const monthlyData = [
-  { day: "Jan", documents: 85000 },
-  { day: "Feb", documents: 65000 },
-  { day: "Mar", documents: 95000 },
-  { day: "Apr", documents: 75000 },
-  { day: "May", documents: 55000 },
-  { day: "Jun", documents: 80000 },
+  { day: "Jan", users: 55000, experts: 30000, revenue: 500 },
+  { day: "Feb", users: 42000, experts: 23000, revenue: 500 },
+  { day: "Mar", users: 65000, experts: 30000, revenue: 500 },
+  { day: "Apr", users: 50000, experts: 25000, revenue: 500 },
+  { day: "May", users: 38000, experts: 17000, revenue: 500 },
+  { day: "Jun", users: 55000, experts: 25000, revenue: 500 },
 ];
 
 const dailyData = [
-  { day: "9 AM", documents: 12000 },
-  { day: "12 PM", documents: 18000 },
-  { day: "3 PM", documents: 22000 },
-  { day: "6 PM", documents: 15000 },
-  { day: "9 PM", documents: 10000 },
+  { day: "9 AM", users: 8000, experts: 4000, revenue: 500 },
+  { day: "12 PM", users: 12000, experts: 6000, revenue: 500 },
+  { day: "3 PM", users: 15000, experts: 7000, revenue: 500 },
+  { day: "6 PM", users: 10000, experts: 5000, revenue: 500 },
+  { day: "9 PM", users: 7000, experts: 3000, revenue: 500 },
 ];
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
-    color: "var(--chart-1)",
+  users: {
+    label: "Users",
+    color: "#C5A065",
   },
-  mobile: {
-    label: "Mobile",
-    color: "var(--chart-2)",
+  experts: {
+    label: "Experts",
+    color: "#EAEAEA",
+  },
+  revenue: {
+    label: "Revenue",
+    color: "#60A5FA",
   },
 } satisfies ChartConfig;
 
@@ -61,14 +65,7 @@ const chartDataMap = {
   weekly: weeklyData,
   monthly: monthlyData,
 };
-const chartData = [
-  { month: "January", users: 186, experts: 80 },
-  { month: "February", users: 305, experts: 200 },
-  { month: "March", users: 237, experts: 120 },
-  { month: "April", users: 73, experts: 190 },
-  { month: "May", users: 209, experts: 130 },
-  { month: "June", users: 214, experts: 140 },
-];
+
 const timePeriods = ["daily", "weekly", "monthly"] as const;
 
 const WeeklyBarChart = () => {
@@ -77,6 +74,7 @@ const WeeklyBarChart = () => {
   const [selectOpen, setSelectOpen] = useState(false);
 
   const currentPeriodIndex = timePeriods.indexOf(timePeriod);
+  const currentData = chartDataMap[timePeriod];
 
   const handlePrevious = () => {
     const newIndex =
@@ -96,7 +94,7 @@ const WeeklyBarChart = () => {
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-2 mb-4 sm:mb-6">
         <div className="flex flex-col xs:flex-row items-start xs:items-center gap-2 sm:gap-3 w-full sm:w-auto">
           <h3 className="text-base sm:text-lg font-semibold text-gray-900 whitespace-nowrap">
-            Generated AI Documents
+            Revenue Stats
           </h3>
           <div className="flex items-center gap-1">
             {/* Time Period Selector */}
@@ -163,20 +161,33 @@ const WeeklyBarChart = () => {
             <div className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-[#EAEAEA]"></div>
             <span className="text-xs sm:text-sm text-gray-600">Experts</span>
           </div>
+          <div className="flex items-center gap-2">
+            <div className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-[#60A5FA]"></div>
+            <span className="text-xs sm:text-sm text-gray-600">Revenue</span>
+          </div>
         </div>
       </div>
 
       <ChartContainer
         config={chartConfig}
         className="h-[250px] sm:h-[300px] w-full">
-        <BarChart accessibilityLayer data={chartData}>
+        <BarChart accessibilityLayer data={currentData}>
           <CartesianGrid vertical={false} />
           <XAxis
-            dataKey="month"
+            dataKey="day"
             tickLine={false}
             tickMargin={10}
             axisLine={false}
-            tickFormatter={(value) => value.slice(0, 3)}
+          />
+          <YAxis
+            scale="log"
+            domain={[100, 100000]}
+            tickLine={false}
+            axisLine={false}
+            tickFormatter={(value) => {
+              if (value >= 1000) return `${value / 1000}k`;
+              return value;
+            }}
           />
           <ChartTooltip
             cursor={false}
@@ -186,6 +197,7 @@ const WeeklyBarChart = () => {
           />
           <Bar dataKey="users" fill="#C5A065" radius={4} />
           <Bar dataKey="experts" fill="#EAEAEA" radius={4} />
+          <Bar dataKey="revenue" fill="#60A5FA" radius={4} />
         </BarChart>
       </ChartContainer>
     </Card>

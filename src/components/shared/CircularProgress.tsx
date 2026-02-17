@@ -10,6 +10,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  ArrowDownLeft,
+  ArrowDownRight,
+  ArrowUpRight,
+  IndentIncrease,
+} from "lucide-react";
 
 /**
  * Props for the DonutChart component
@@ -34,9 +40,9 @@ const chartConfig = {
 export function DonutChart({ value, maxValue }: DonutChartProps) {
   return (
     <Card className="w-full bg-white">
-      <CardHeader className="pb-0 pt-3 sm:pt-6">
+      <CardHeader className="pb-0 pt-3 sm:pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
         <Select defaultValue="week">
-          <SelectTrigger className="w-[110px] sm:w-[130px] h-[36px] sm:h-[40px] bg-[#EBF0F5] hover:bg-[#E5EAF0] border-0 rounded-none text-[12px] sm:text-[14px] font-medium text-[#1A1A1A] focus:ring-0 focus:ring-offset-0">
+          <SelectTrigger className="w-[110px] sm:w-[130px] h-[36px] sm:h-[40px] bg-[#C5A065] hover:bg-[#b89051] border-0 rounded-none text-[12px] sm:text-[14px] font-medium text-[#ffff] focus:ring-0 focus:ring-offset-0 [&_svg:not([class*='text-'])]:text-white!">
             <SelectValue placeholder="Weekly" />
           </SelectTrigger>
           <SelectContent className="border-0 shadow-lg rounded-[12px]">
@@ -51,6 +57,20 @@ export function DonutChart({ value, maxValue }: DonutChartProps) {
             </SelectItem>
           </SelectContent>
         </Select>
+        <div className="flex items-center gap-4">
+          <span className="">Users</span>
+          <div className="border border-[#28F647] bg-[#EBFFEE] py-1 px-1.5 text-[#28F647] flex items-center gap-1 rounded-full text-xs sm:text-sm font-medium w-max">
+            <ArrowUpRight className="size-4" />
+            12.4%
+          </div>
+        </div>
+        <div className="flex items-center gap-4">
+          <span className="">Experts</span>
+          <div className="border border-[#DC2626] bg-[#FF78780D] py-1 px-1.5 text-[#DC2626] flex items-center gap-1 rounded-full text-xs sm:text-sm font-medium w-max">
+            <ArrowDownLeft className="size-4" />
+            12.4%
+          </div>
+        </div>
       </CardHeader>
 
       <CardContent className="px-4 sm:px-8 pt-4 sm:pt-6 pb-6 sm:pb-10">
@@ -84,7 +104,7 @@ export function DonutChart({ value, maxValue }: DonutChartProps) {
                   cornerRadius={0}
                   stroke="none"
                   className="sm:!inner-radius-[50] sm:!outer-radius-[110]">
-                  <Cell fill="#F5F9FF" />
+                  <Cell fill="#FFEFDF4D" />
                 </Pie>
 
                 {/* Foreground arc - purple gradient */}
@@ -101,7 +121,7 @@ export function DonutChart({ value, maxValue }: DonutChartProps) {
                   cornerRadius={0}
                   stroke="none"
                   className="sm:!inner-radius-[50] sm:!outer-radius-[110]">
-                  <Cell fill="#C9A5DC" />
+                  <Cell fill="#FFEFDF" />
 
                   {/* Center white circle with value */}
                   <Label
