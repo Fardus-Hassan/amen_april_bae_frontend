@@ -30,15 +30,15 @@ export default function SubscriptionPlanContent() {
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="monthly">
+          <TabsContent value="monthly" className="pt-4">
             <SubscriptionForm />
           </TabsContent>
 
-          <TabsContent value="quarterly">
+          <TabsContent value="quarterly" className="pt-4">
             <SubscriptionForm />
           </TabsContent>
 
-          <TabsContent value="yearly">
+          <TabsContent value="yearly" className="pt-4">
             <SubscriptionForm />
           </TabsContent>
         </Tabs>

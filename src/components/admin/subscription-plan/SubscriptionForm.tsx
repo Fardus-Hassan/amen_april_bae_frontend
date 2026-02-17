@@ -134,7 +134,7 @@ export default function SubscriptionForm({
     <form
       onSubmit={handleSubmit(handleFormSubmit)}
       noValidate
-      className="space-y-6 pt-6">
+      className="space-y-6">
       {/* Row 1 */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div className="space-y-2">
