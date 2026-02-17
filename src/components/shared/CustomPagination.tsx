@@ -84,7 +84,7 @@ const CustomPagination: React.FC<CustomPaginationProps> = ({
               size="sm"
               className={`h-8 w-8 p-0 font-normal ${
                 currentPage === 1
-                  ? "bg-[#A655F6] text-white hover:bg-[#9344E0] hover:text-white border-[#A655F6]"
+                  ? "bg-[#C5A065] text-white hover:bg-[#A8853A] hover:text-white border-[#C5A065]"
                   : "bg-white text-gray-700 border-gray-200 hover:bg-gray-50"
               }`}
               onClick={() => onPageChange(1)}>
@@ -101,7 +101,7 @@ const CustomPagination: React.FC<CustomPaginationProps> = ({
             size="sm"
             className={`h-8 w-8 p-0 font-normal ${
               page === currentPage
-                ? "bg-[#A655F6] text-white hover:bg-[#9344E0] hover:text-white border-[#A655F6]"
+                ? "bg-[#C5A065] text-white hover:bg-[#A8853A] hover:text-white border-[#C5A065]"
                 : "bg-white text-gray-700 border-gray-200 hover:bg-gray-50"
             }`}
             onClick={() => onPageChange(page)}>
@@ -119,7 +119,7 @@ const CustomPagination: React.FC<CustomPaginationProps> = ({
               size="sm"
               className={`h-8 w-8 p-0 font-normal ${
                 currentPage === totalPages
-                  ? "bg-[#A655F6] text-white hover:bg-[#9344E0] hover:text-white border-[#A655F6]"
+                  ? "bg-[#C5A065] text-white hover:bg-[#A8853A] hover:text-white border-[#C5A065]"
                   : "bg-white text-gray-700 border-gray-200 hover:bg-gray-50"
               }`}
               onClick={() => onPageChange(totalPages)}>

@@ -81,9 +81,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     href={item.href}
                     className="flex items-center gap-3 px-3 py-3 sm:p-4">
                     <item.icon
-                      className={`h-5 w-5 sm:h-6 sm:w-6 text-[#61758A] flex-shrink-0 ${isActive && "text-white"}`}
+                      className={`h-4! w-4! sm:h-5! sm:w-5! text-[#61758A] flex-shrink-0 ${isActive && "text-white"}`}
                     />
-                    <span className="font-medium text-sm sm:text-base">
+                    <span className="font-normal text-base sm:text-lg">
                       {item.label}
                     </span>
                   </Link>
