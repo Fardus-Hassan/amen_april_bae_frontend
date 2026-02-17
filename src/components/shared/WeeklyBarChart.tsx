@@ -10,13 +10,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import {
+  ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
-import { ChevronDown, ChevronLeft, ChevronRight, Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
+import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 
 const weeklyData = [
   { day: "Fri", documents: 25000 },
@@ -46,18 +46,29 @@ const dailyData = [
 ];
 
 const chartConfig = {
-  documents: {
-    label: "Documents",
-    color: "#c084fc",
+  desktop: {
+    label: "Desktop",
+    color: "var(--chart-1)",
   },
-};
+  mobile: {
+    label: "Mobile",
+    color: "var(--chart-2)",
+  },
+} satisfies ChartConfig;
 
 const chartDataMap = {
   daily: dailyData,
   weekly: weeklyData,
   monthly: monthlyData,
 };
-
+const chartData = [
+  { month: "January", users: 186, experts: 80 },
+  { month: "February", users: 305, experts: 200 },
+  { month: "March", users: 237, experts: 120 },
+  { month: "April", users: 73, experts: 190 },
+  { month: "May", users: 209, experts: 130 },
+  { month: "June", users: 214, experts: 140 },
+];
 const timePeriods = ["daily", "weekly", "monthly"] as const;
 
 const WeeklyBarChart = () => {
@@ -79,8 +90,6 @@ const WeeklyBarChart = () => {
     setTimePeriod(timePeriods[newIndex]);
   };
 
-  const currentData = chartDataMap[timePeriod];
-
   return (
     <Card className="p-3 sm:p-4 md:p-6">
       {/* Header */}
@@ -91,19 +100,19 @@ const WeeklyBarChart = () => {
           </h3>
           <div className="flex items-center gap-1">
             {/* Time Period Selector */}
-            <div className="flex items-center bg-[#EBF0F5] gap-2 sm:gap-4 p-1.5 sm:p-2.5">
+            <div className="flex items-center bg-[#C5A065] gap-2 sm:gap-4 p-1.5 sm:p-2.5">
               {/* Prev */}
               <button
                 onClick={handlePrevious}
                 className="cursor-pointer hover:opacity-70 transition-opacity"
                 aria-label="Previous period">
-                <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 text-[#61758A]" />
+                <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 text-[#ffff]" />
               </button>
 
               {/* Current period display - Clickable to open select */}
               <button
                 onClick={() => setSelectOpen(true)}
-                className="text-xs sm:text-sm font-medium text-gray-700 capitalize cursor-pointer hover:text-gray-900 transition-colors min-w-[50px] sm:min-w-[60px]">
+                className="text-xs sm:text-sm font-medium text-gray-100 capitalize cursor-pointer hover:text-gray-50 transition-colors min-w-[50px] sm:min-w-[60px]">
                 {timePeriod}
               </button>
 
@@ -112,16 +121,16 @@ const WeeklyBarChart = () => {
                 onClick={handleNext}
                 className="cursor-pointer hover:opacity-70 transition-opacity"
                 aria-label="Next period">
-                <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 text-[#61758A]" />
+                <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 text-[#ffff]" />
               </button>
             </div>
 
             {/* Dropdown icon button */}
             <button
               onClick={() => setSelectOpen(true)}
-              className="hover:bg-[#e69af7] transition-all p-1.5 sm:p-2.5 bg-[#E5BEEE]"
+              className="hover:bg-[#ffe7ce] transition-all p-1.5 sm:p-2.5 bg-[#FFEFDF]"
               aria-label="Open period selector">
-              <ChevronDown className="h-4 w-4 sm:h-5 sm:w-5 text-[#ffff]" />
+              <ChevronDown className="h-4 w-4 sm:h-5 sm:w-5 text-[#4A5565]" />
             </button>
 
             {/* Hidden Select - Controlled by buttons above */}
@@ -145,49 +154,38 @@ const WeeklyBarChart = () => {
         </div>
 
         {/* Legend */}
-        <div className="flex items-center gap-2">
-          <div className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-[#E5BEEE]"></div>
-          <span className="text-xs sm:text-sm text-gray-600">Documents</span>
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            <div className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-[#C5A065]"></div>
+            <span className="text-xs sm:text-sm text-gray-600">Users</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-[#EAEAEA]"></div>
+            <span className="text-xs sm:text-sm text-gray-600">Experts</span>
+          </div>
         </div>
       </div>
 
-      {/* Chart */}
       <ChartContainer
         config={chartConfig}
         className="h-[250px] sm:h-[300px] w-full">
-        <BarChart
-          data={currentData}
-          margin={{ top: 10, right: 5, left: -10, bottom: 0 }}>
-          <CartesianGrid
-            strokeDasharray="3 3"
-            vertical={false}
-            stroke="#f0f0f0"
-          />
+        <BarChart accessibilityLayer data={chartData}>
+          <CartesianGrid vertical={false} />
           <XAxis
-            dataKey="day"
+            dataKey="month"
             tickLine={false}
+            tickMargin={10}
             axisLine={false}
-            tick={{ fill: "#6b7280", fontSize: 11 }}
-            className="text-[10px] sm:text-xs"
-          />
-          <YAxis
-            tickLine={false}
-            axisLine={false}
-            tick={{ fill: "#6b7280", fontSize: 11 }}
-            tickFormatter={(value) => `${value / 1000}k`}
-            className="text-[10px] sm:text-xs"
-            width={35}
+            tickFormatter={(value) => value.slice(0, 3)}
           />
           <ChartTooltip
-            content={<ChartTooltipContent />}
-            cursor={{ fill: "rgba(192, 132, 252, 0.1)" }}
+            cursor={false}
+            content={
+              <ChartTooltipContent indicator="line" className="capitalize" />
+            }
           />
-          <Bar
-            dataKey="documents"
-            fill="#E5BEEE"
-            radius={[4, 4, 0, 0]}
-            maxBarSize={60}
-          />
+          <Bar dataKey="users" fill="#C5A065" radius={4} />
+          <Bar dataKey="experts" fill="#EAEAEA" radius={4} />
         </BarChart>
       </ChartContainer>
     </Card>
