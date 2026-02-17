@@ -26,6 +26,7 @@ import WeeklyBarChart from "../shared/WeeklyBarChart";
 import StatCard from "../shared/StateCard";
 import DonutChart from "../shared/CircularProgress";
 import CustomPagination from "../shared/CustomPagination";
+import PageTitle from "../shared/PageTitle";
 
 const Overview = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -74,9 +75,7 @@ const Overview = () => {
   return (
     <div className="w-full space-y-4 sm:space-y-6 px-2 sm:px-0">
       {/* Page Title */}
-      <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-900">
-        Overview
-      </h1>
+      <PageTitle text="Overview" />
 
       {/* Stats Cards Grid */}
       <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">

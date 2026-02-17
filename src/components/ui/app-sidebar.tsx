@@ -13,11 +13,12 @@ import {
 } from "@/components/ui/sidebar";
 import {
   LayoutDashboard,
-  User,
-  FileText,
-  Shield,
   LogOut,
-  Heading,
+  Waypoints,
+  Cog,
+  Users,
+  UserRoundCog,
+  Star,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -34,19 +35,29 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       icon: LayoutDashboard,
     },
     {
-      label: "My Profile",
-      href: "/dashboard/admin/profile",
-      icon: User,
+      label: "User Management",
+      href: "/dashboard/admin/user-management",
+      icon: Users,
     },
     {
-      label: "My Document",
-      href: "/dashboard/admin/documents",
-      icon: FileText,
+      label: "Subscription Plan",
+      href: "/dashboard/admin/subscription-plan",
+      icon: Waypoints,
     },
     {
-      label: "Admin Management",
-      href: "/dashboard/admin/admin-management",
-      icon: Shield,
+      label: "Platform Settings",
+      href: "/dashboard/admin/platform-settings",
+      icon: Cog,
+    },
+    {
+      label: "Admin Settings",
+      href: "/dashboard/admin/admin-settings",
+      icon: UserRoundCog,
+    },
+    {
+      label: "User Reviews",
+      href: "/dashboard/admin/user-reviews",
+      icon: Star,
     },
   ];
 
