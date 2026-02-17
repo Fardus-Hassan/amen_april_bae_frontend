@@ -34,15 +34,11 @@ export default function SubscriptionPlanContent() {
           </TabsContent>
 
           <TabsContent value="quarterly" className="mt-5">
-            <p className="text-gray-500 text-sm">
-              No quarterly plans to display yet.
-            </p>
+            <SubscriptionForm />
           </TabsContent>
 
           <TabsContent value="yearly" className="mt-5">
-            <p className="text-gray-500 text-sm">
-              No yearly plans to display yet.
-            </p>
+            <SubscriptionForm />
           </TabsContent>
         </Tabs>
       </div>
