@@ -52,10 +52,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
       <SidebarContent>
-        <SidebarHeader className="md:hidden ml-2">
+        <SidebarHeader className="md:hidden ml-2 px-2 py-2">
           <Heading />
         </SidebarHeader>
-        <SidebarMenu className="gap-3 px-2 py-4">
+        <SidebarMenu className="gap-2 px-2 py-3">
           {navigationItems.map((item) => {
             const isActive = pathname === item.href;
             return (
@@ -64,14 +64,16 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   size="lg"
                   asChild
                   isActive={isActive}
-                  className="hover:bg-accent hover:text-accent-foreground transition-colors data-[active=true]:bg-[#C5A065] data-[active=true]:text-white font-medium  text-gray-700">
+                  className="hover:bg-accent hover:text-accent-foreground transition-colors data-[active=true]:bg-[#C5A065] data-[active=true]:text-white font-medium text-gray-700">
                   <Link
                     href={item.href}
-                    className="flex items-center gap-3 p-4">
+                    className="flex items-center gap-3 px-3 py-3 sm:p-4">
                     <item.icon
-                      className={`h-6! w-6! text-[#61758A] ${isActive && "text-white"}`}
+                      className={`h-5 w-5 sm:h-6 sm:w-6 text-[#61758A] flex-shrink-0 ${isActive && "text-white"}`}
                     />
-                    <span className="font-medium text-base">{item.label}</span>
+                    <span className="font-medium text-sm sm:text-base">
+                      {item.label}
+                    </span>
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -79,10 +81,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           })}
         </SidebarMenu>
       </SidebarContent>
-      <SidebarFooter className="border-t">
-        <button className="flex items-center justify-center gap-2 w-full px-4 py-3 text-base font-medium bg-gray-100 hover:text-white bg-[rgba(255, 74, 74, 0.5)] hover:bg-[#FF4A4A] rounded-md transition-colors focus:outline-none text-[#FF4A4A]">
-          <LogOut className="h-6 w-6" />
-          Logout
+      <SidebarFooter className="border-t px-2 py-3">
+        <button className="flex items-center justify-center gap-2 w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base font-medium bg-gray-100 hover:text-white bg-[rgba(255, 74, 74, 0.5)] hover:bg-[#FF4A4A] rounded-md transition-colors focus:outline-none text-[#FF4A4A]">
+          <LogOut className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0" />
+          <span className="hidden sm:inline">Logout</span>
         </button>
       </SidebarFooter>
     </Sidebar>
