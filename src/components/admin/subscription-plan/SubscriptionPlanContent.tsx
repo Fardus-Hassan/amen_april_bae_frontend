@@ -3,6 +3,7 @@
 import PageTitle from "@/components/shared/PageTitle";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import SubscriptionForm from "./SubscriptionForm";
+import PlanFreeCard from "./PlanFreeCard";
 
 export default function SubscriptionPlanContent() {
   return (
@@ -29,19 +30,21 @@ export default function SubscriptionPlanContent() {
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="monthly" className="mt-5">
+          <TabsContent value="monthly">
             <SubscriptionForm />
           </TabsContent>
 
-          <TabsContent value="quarterly" className="mt-5">
+          <TabsContent value="quarterly">
             <SubscriptionForm />
           </TabsContent>
 
-          <TabsContent value="yearly" className="mt-5">
+          <TabsContent value="yearly">
             <SubscriptionForm />
           </TabsContent>
         </Tabs>
       </div>
+
+      <PlanFreeCard />
     </div>
   );
 }
