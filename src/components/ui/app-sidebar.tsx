@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Logo from "../shared/Logo";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const pathname = usePathname();
@@ -52,8 +53,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
       <SidebarContent>
-        <SidebarHeader className="md:hidden ml-2 px-2 py-2">
-          <Heading />
+        <SidebarHeader className="mx-2 px-2 py-4 md:py-8 border-b">
+          <Logo layout={"vertical"} />
         </SidebarHeader>
         <SidebarMenu className="gap-2 px-2 py-3">
           {navigationItems.map((item) => {
