@@ -1,7 +1,9 @@
 "use client";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useState } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import PageTitle from "@/components/shared/PageTitle";
 import AdminInfoContent from "./AdminInfoContent";
 import SuspendedUsers from "./SuspendedUsers";
@@ -17,13 +19,33 @@ const tabClass = [
 
 // ---------- Main Export ----------
 export default function AdminSettingsContent() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  // Initialize active tab from URL once
+  const initialTab = searchParams.get("tab") || "admin-info";
+  const [activeTab, setActiveTab] = useState(initialTab);
+
+  // Update URL when user changes tab
+  const handleTabChange = (value: string) => {
+    setActiveTab(value);
+
+    const url = new URL(window.location.href);
+    url.searchParams.set("tab", value);
+
+    // Replace current history entry without reloading
+    router.replace(url.toString());
+  };
+
   return (
     <div>
       <PageTitle text="Admin Settings" />
 
-      <Tabs defaultValue="admin-info" className="w-full pt-6">
-        {/* Scrollable tab bar on small screens */}
-        <TabsList className="bg-transparent p-0 h-auto gap-1 sm:gap-2 justify-start flex ">
+      <Tabs
+        value={activeTab}
+        onValueChange={handleTabChange}
+        className="w-full pt-6">
+        <TabsList className="bg-transparent p-0 h-auto gap-1 sm:gap-2 justify-start flex">
           <TabsTrigger value="admin-info" className={tabClass}>
             Admin Info
           </TabsTrigger>
