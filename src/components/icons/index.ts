@@ -5,3 +5,5 @@ export { ArrowRightIcon } from "./ArrowRightIcon";
 export { ShieldCheckIcon } from "./ShieldCheckIcon";
 export { LockIcon } from "./LockIcon";
 export { BadgeCheckIcon } from "./BadgeCheckIcon";
+export { EyeIcon } from "./EyeIcon";
+export { EyeOffIcon } from "./EyeOffIcon";

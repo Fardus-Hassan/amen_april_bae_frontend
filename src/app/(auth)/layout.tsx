@@ -1,11 +1,9 @@
-export default function AuthLayout({
+import { AuthLayout } from "@/components/auth/AuthLayout";
+
+export default function AuthLayoutWrapper({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <div className="min-h-screen flex items-center justify-center p-4">
-      {children}
-    </div>
-  );
+  return <AuthLayout>{children}</AuthLayout>;
 }
