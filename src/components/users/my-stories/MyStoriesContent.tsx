@@ -49,7 +49,7 @@ export default function MyStoriesContent() {
   const totalItems = activities.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
   return (
-    <div className="space-y-3 sm:space-y-4 mt-6">
+    <div className="space-y-3 sm:space-y-4">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
         <PageTitle text="My Documents" />
