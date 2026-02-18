@@ -3,12 +3,23 @@
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { SiteHeader } from "../ui/site-header";
 import { AppSidebar } from "../ui/app-sidebar";
+import { useEffect } from "react";
 
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      if (document.body.hasAttribute("data-scroll-locked")) {
+        document.body.removeAttribute("data-scroll-locked");
+        document.body.style.overflow = "auto";
+      }
+    });
+    observer.observe(document.body, { attributes: true });
+    return () => observer.disconnect();
+  }, []);
   return (
     <SidebarProvider>
       <AppSidebar variant="sidebar" />
