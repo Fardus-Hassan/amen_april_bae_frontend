@@ -1,7 +1,5 @@
+import UserOverview from "@/components/users/UserOverview";
+
 export default function page() {
-  return (
-    <div>
-      <h1>User</h1>
-    </div>
-  );
+  return <UserOverview />;
 }
