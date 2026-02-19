@@ -99,7 +99,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     <Sidebar {...props}>
       <SidebarContent>
         <SidebarHeader className="mx-2 px-2 py-4 md:py-8 border-b">
-          <Logo layout={"vertical"} />
+          <Link href={isUserPath ? "/dashboard/user" : "/dashboard/admin"}>
+            <Logo layout={"vertical"} />
+          </Link>
         </SidebarHeader>
 
         <SidebarMenu className="gap-2 px-2 py-3">

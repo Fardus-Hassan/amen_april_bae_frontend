@@ -1,6 +1,6 @@
 "use client";
 
-import { Eye, Trash2, BookA, Dna, Map, UserPen, Search } from "lucide-react";
+import { BookA, Dna, Map, UserPen, Search } from "lucide-react";
 import PageTitle from "../shared/PageTitle";
 import StatCard from "../shared/StateCard";
 import CustomPagination from "../shared/CustomPagination";
