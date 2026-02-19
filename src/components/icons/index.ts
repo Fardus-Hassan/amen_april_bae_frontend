@@ -7,3 +7,7 @@ export { LockIcon } from "./LockIcon";
 export { BadgeCheckIcon } from "./BadgeCheckIcon";
 export { EyeIcon } from "./EyeIcon";
 export { EyeOffIcon } from "./EyeOffIcon";
+export { UsersIcon } from "./UsersIcon";
+export { MapPinIcon } from "./MapPinIcon";
+export { PlaneIcon } from "./PlaneIcon";
+export { CheckIcon } from "./CheckIcon";
