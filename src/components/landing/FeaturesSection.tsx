@@ -1,9 +1,13 @@
+"use client";
+
+import { motion } from "framer-motion";
 import {
   UsersIcon,
   MapPinIcon,
   PlaneIcon,
   CheckIcon,
 } from "@/components/icons";
+import { fadeInUp, defaultViewport } from "@/lib/motion";
 
 const FEATURES = [
   {
@@ -46,9 +50,24 @@ const FEATURES = [
 
 export function FeaturesSection() {
   return (
-    <section className="bg-landing-bg py-14 sm:py-16 lg:py-24">
+    <motion.section
+      className="bg-landing-bg py-14 sm:py-16 lg:py-24"
+      initial="hidden"
+      whileInView="visible"
+      viewport={defaultViewport}
+      variants={{
+        hidden: { opacity: 0 },
+        visible: {
+          opacity: 1,
+          transition: { staggerChildren: 0.1, delayChildren: 0.1 },
+        },
+      }}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <header className="mx-auto max-w-2xl text-center">
+        <motion.header
+          className="mx-auto max-w-2xl text-center"
+          variants={fadeInUp}
+        >
           <h2 className="font-merriweather text-3xl font-bold text-secondary sm:text-4xl lg:text-5xl">
             More Than Just Data
           </h2>
@@ -56,12 +75,13 @@ export function FeaturesSection() {
             We transform genetic markers into meaningful narratives, connecting
             you to your past and guiding your future.
           </p>
-        </header>
+        </motion.header>
 
         <div className="mt-12 grid gap-8 sm:mt-16 lg:grid-cols-3 lg:gap-8">
           {FEATURES.map(({ id, icon: Icon, title, description, items }) => (
-            <article
+            <motion.article
               key={id}
+              variants={fadeInUp}
               className="rounded-2xl bg-white p-6 shadow-md sm:p-8"
             >
               <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-landing-badge-bg text-primary">
@@ -86,10 +106,10 @@ export function FeaturesSection() {
                   </li>
                 ))}
               </ul>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

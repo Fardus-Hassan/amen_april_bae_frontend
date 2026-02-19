@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { defaultViewport } from "@/lib/motion";
 
 const STATS = [
   {
@@ -171,22 +173,30 @@ export function StatsSection() {
   }, []);
 
   return (
-    <section
+    <motion.section
       ref={sectionRef}
       className="bg-white py-10 sm:py-14 lg:py-16"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={defaultViewport}
+      transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10 lg:grid-cols-5 lg:gap-8">
           {STATS.map((item) => (
-            <div
+            <motion.div
               key={item.id}
               className="flex justify-center border-0 border-gray-100 sm:justify-start lg:border-r lg:pr-8 last:border-r-0 last:pr-0 mx-auto text-center"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={defaultViewport}
+              transition={{ duration: 0.4, ease: "easeOut" }}
             >
               <StatCounter item={item} isVisible={isVisible} />
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
