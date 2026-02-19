@@ -1,42 +1,81 @@
 import Link from "next/link";
+import Image from "next/image";
+import { AuthCard } from "@/components/auth/AuthCard";
 
 export default function LoginPage() {
   return (
-    <div className="w-full max-w-md rounded-lg border border-foreground/20 p-6 shadow-lg">
-      <h1 className="text-2xl font-bold mb-4">Auth — Login</h1>
-      <form className="space-y-4">
+    <AuthCard>
+      <div className="mb-6 flex justify-center">
+        <Image
+          src="/images/logo.png"
+          alt="Ai DNA Time Machine"
+          width={140}
+          height={48}
+          className="h-10 w-auto object-contain"
+        />
+      </div>
+      <h1 className="font-merriweather text-2xl font-bold text-secondary sm:text-3xl">
+        Log in to your account
+      </h1>
+
+      <form className="mt-6 space-y-4">
         <div>
-          <label className="block text-sm font-medium mb-1">Email</label>
+          <label className="mb-1 block text-sm font-medium text-text-primary">
+            Email address
+          </label>
           <input
             type="email"
-            className="w-full px-3 py-2 rounded border border-foreground/30 bg-transparent"
+            className="w-full rounded-xl border border-gray-200 bg-gray-100 px-4 py-2.5 text-text-primary placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
             placeholder="you@example.com"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-1">Password</label>
+          <label className="mb-1 block text-sm font-medium text-text-primary">
+            Password
+          </label>
           <input
             type="password"
-            className="w-full px-3 py-2 rounded border border-foreground/30 bg-transparent"
+            className="w-full rounded-xl border border-gray-200 bg-gray-100 px-4 py-2.5 text-text-primary placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
             placeholder="••••••••"
           />
         </div>
         <button
           type="submit"
-          className="w-full py-2 rounded bg-foreground text-background font-medium hover:opacity-90"
+          className="w-full rounded-xl bg-secondary py-3 font-semibold text-white hover:opacity-90"
         >
-          Login
+          Log In
         </button>
       </form>
-      <p className="mt-4 text-sm text-center">
-        No account?{" "}
-        <Link href="/auth/register" className="underline hover:no-underline">
-          Register
+
+      <p className="mt-5 text-center text-sm text-text-primary">
+        Don&apos;t have an account?{" "}
+        <Link href="/auth/register" className="font-medium text-secondary underline hover:no-underline">
+          Create Your Account
         </Link>
       </p>
-      <Link href="/" className="block mt-2 text-sm text-center text-foreground/70 hover:underline">
-        ← Back to Landing
-      </Link>
-    </div>
+
+      <div className="relative my-6">
+        <div className="absolute inset-0 flex items-center">
+          <div className="w-full border-t border-gray-200" />
+        </div>
+        <div className="relative flex justify-center">
+          <span className="bg-white px-3 text-sm text-gray-500">or</span>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        className="flex w-full items-center justify-center gap-2 rounded-xl border border-gray-300 bg-white py-3 font-medium text-text-primary hover:bg-gray-50"
+      >
+        <span className="text-lg font-bold text-[#4285F4]">G</span>
+        <span className="text-[#ea4335]">o</span>
+        <span className="text-[#fbbc05]">o</span>
+        <span className="text-[#4285F4]">g</span>
+        <span className="text-[#34a853]">l</span>
+        <span className="text-[#ea4335]">e</span>
+        {" "}
+        Sign in with Google
+      </button>
+    </AuthCard>
   );
 }

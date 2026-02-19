@@ -1,6 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { ArrowRightIcon, ShieldCheckIcon, LockIcon, BadgeCheckIcon } from "@/components/icons";
+import { fadeInUp, defaultViewport } from "@/lib/motion";
 
 const FEATURES = [
   { icon: ShieldCheckIcon, label: "GDPR Ready" },
@@ -10,7 +14,19 @@ const FEATURES = [
 
 export function Banner() {
   return (
-    <section className="relative overflow-hidden bg-landing-bg">
+    <motion.section
+      className="relative overflow-hidden bg-landing-bg"
+      initial="hidden"
+      whileInView="visible"
+      viewport={defaultViewport}
+      variants={{
+        hidden: { opacity: 0 },
+        visible: {
+          opacity: 1,
+          transition: { staggerChildren: 0.08, delayChildren: 0.1 },
+        },
+      }}
+    >
       {/* Subtle pattern on right (desktop) */}
       <div
         className="pointer-events-none absolute right-0 top-0 hidden h-full w-1/2 opacity-60 lg:block"
@@ -22,22 +38,22 @@ export function Banner() {
 
       <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 flex flex-col-reverse lg:flex-row lg:gap-12 lg:px-8 lg:py-20">
         {/* Left content */}
-        <div className="flex flex-col justify-center">
-          <span className="mb-4 lg:mt-0 mt-5 inline-block lg:text-base sm:text-sm text-xs w-fit rounded-[20px] bg-white/50 px-3 py-1.5 font-bold uppercase text-primary">
+        <motion.div className="flex flex-col justify-center" variants={fadeInUp}>
+          <motion.span variants={fadeInUp} className="mb-4 lg:mt-0 mt-5 inline-block lg:text-base sm:text-sm text-xs w-fit rounded-[20px] bg-white/50 px-3 py-1.5 font-bold uppercase text-primary">
             Verified by professional genealogists
-          </span>
+          </motion.span>
 
-          <h1 className="text-3xl font-bold leading-tight tracking-tight text-landing-navy sm:text-4xl lg:text-[50px] xl:text-[60px] font-merriweather">
+          <motion.h1 variants={fadeInUp} className="text-3xl font-bold leading-tight tracking-tight text-landing-navy sm:text-4xl lg:text-[50px] xl:text-[60px] font-merriweather">
             <span className="text-secondary text-nowrap">Your DNA is the Ink.</span>
             <br />
             <span className="text-primary text-nowrap">We Write the Story.</span>
-          </h1>
+          </motion.h1>
 
-          <p className="mt-4 max-w-lg lg:text-base text-sm text-text-primary sm:text-lg">
+          <motion.p variants={fadeInUp} className="mt-4 max-w-lg lg:text-base text-sm text-text-primary sm:text-lg">
             Turn raw data into a verified family legacy in 48 hours.
-          </p>
+          </motion.p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <motion.div variants={fadeInUp} className="mt-8 flex flex-wrap items-center gap-3">
             <Link
               href="/auth/register"
               className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 md:text-sm text-xs font-semibold text-white transition hover:opacity-90"
@@ -51,26 +67,30 @@ export function Banner() {
             >
               Watch Demo
             </Link>
-          </div>
+          </motion.div>
 
           {/* Feature badges */}
-          <div className="mt-10 flex flex-wrap gap-6">
+          <motion.div variants={fadeInUp} className="mt-10 flex flex-wrap gap-6">
             {FEATURES.map(({ icon: Icon, label }) => (
-              <div
+              <motion.div
                 key={label}
+                variants={fadeInUp}
                 className="flex items-center gap-2"
               >
                 <span className="flex p-[10px] shrink-0 items-center shadow justify-center rounded-full bg-white">
                   <Icon size={24} />
                 </span>
                 <span className="sm:text-sm text-xs font-semibold text-secondary">{label}</span>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Right: banner image */}
-        <div className="relative lg:mt-[-100px] mt-[-70px] lg:-mr-[200px] mr-[-50px] xl:-mr-[500px]">
+        <motion.div
+          variants={fadeInUp}
+          className="relative lg:mt-[-100px] mt-[-70px] lg:-mr-[200px] mr-[-50px] xl:-mr-[500px]"
+        >
           <div className="relative overflow-hidden rounded-2xl">
             <div className="absolute inset-0" />
             <Image
@@ -83,8 +103,8 @@ export function Banner() {
               priority
             />
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

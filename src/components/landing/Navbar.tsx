@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { BellIcon, ProfileIcon, MenuIcon } from "@/components/icons";
 
 const NAV_LINKS = [
@@ -16,7 +17,12 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#FAFAFA] backdrop-blur-sm border-b border-(--landing-navy)/10">
+    <motion.header
+      className="sticky top-0 z-50 w-full bg-[#FAFAFA] backdrop-blur-sm border-b border-(--landing-navy)/10"
+      initial={{ opacity: 0, y: -12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+    >
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
         {/* Logo */}
         <Link href="/" className="flex shrink-0 items-center gap-1 xl:w-1/3">
@@ -127,6 +133,6 @@ export function Navbar() {
           </ul>
         </div>
       )}
-    </header>
+    </motion.header>
   );
 }
