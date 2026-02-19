@@ -18,7 +18,6 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
-import Logo from "@/components/shared/Logo";
 import Image from "next/image";
 
 const mockData = Array.from({ length: 10 }, (_, i) => ({
