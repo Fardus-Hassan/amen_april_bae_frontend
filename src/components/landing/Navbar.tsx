@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { BellIcon, ProfileIcon, MenuIcon } from "@/components/icons";
 import {
