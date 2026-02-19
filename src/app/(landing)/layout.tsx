@@ -9,7 +9,7 @@ export default function LandingLayout({
   return (
     <div className="min-h-screen bg-landing-bg">
       <Navbar />
-      {children}
+      <main className="pt-[50px] lg:pt-[81px]">{children}</main>
     </div>
   );
 }
