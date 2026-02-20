@@ -365,32 +365,33 @@ export default function Step5Content() {
   const progress = 45;
 
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-white overflow-x-hidden">
       {/* ── Hero section ── */}
       <div className="flex w-full items-center justify-center bg-[#0f1f38] px-4 pt-14 pb-24 sm:pt-20 sm:pb-32">
-        <div className="flex flex-col items-center gap-6 text-center max-w-2xl w-full">
-          <div className="flex items-center gap-2 rounded-full bg-[#1a2e4a] px-5 py-2.5 text-sm font-semibold text-[#4ade80]">
-            <span className="h-2 w-2 rounded-full bg-[#4ade80] animate-pulse" />
+        <div className="flex flex-col items-center gap-4 sm:gap-6 text-center max-w-2xl w-full">
+          <div className="flex items-center gap-2 rounded-full bg-[#1a2e4a] px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-[#4ade80]">
+            <span className="h-2 w-2 rounded-full bg-[#4ade80] animate-pulse shrink-0" />
             Processing In Progress
           </div>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-snug">
+          <h1 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-snug px-2">
             Your Heritage Story is Being Crafted
           </h1>
-          <p className="text-sm sm:text-base text-[#c9a84c] leading-relaxed max-w-lg">
+          <p className="text-sm sm:text-base text-[#c9a84c] leading-relaxed max-w-lg px-2">
             Our team of professional genealogists and AI systems are analyzing
             your DNA data and documents. This typically takes 48 hours.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full mt-2">
-            <div className="flex items-center gap-2.5 rounded-full bg-[#1a2e4a] px-5 py-3 text-sm font-medium text-white w-full sm:w-auto justify-center">
-              <Clock size={18} className="text-[#c9a84c] shrink-0" />
+          {/* Stats pills — stack on xs, row on sm+ */}
+          <div className="flex flex-col lg:flex-row  items-center justify-center gap-2 sm:gap-3 w-full mt-2 px-2">
+            <div className="flex items-center gap-2.5 rounded-full bg-[#1a2e4a] px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-medium text-white w-full xs:w-auto justify-center">
+              <Clock size={16} className="text-[#c9a84c] shrink-0" />
               Started 6 hours ago
             </div>
-            <div className="flex items-center gap-2.5 rounded-full bg-[#1a2e4a] px-5 py-3 text-sm font-medium text-white w-full sm:w-auto justify-center">
-              <Hourglass size={18} className="text-[#c9a84c] shrink-0" />
+            <div className="flex items-center gap-2.5 rounded-full bg-[#1a2e4a] px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-medium text-white w-full xs:w-auto justify-center">
+              <Hourglass size={16} className="text-[#c9a84c] shrink-0" />
               42 hours remaining
             </div>
-            <div className="flex items-center gap-2.5 rounded-full bg-[#1a2e4a] px-5 py-3 text-sm font-medium text-white w-full sm:w-auto justify-center">
-              <ShieldCheck size={18} className="text-[#c9a84c] shrink-0" />
+            <div className="flex items-center gap-2.5 rounded-full bg-[#1a2e4a] px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-medium text-white w-full xs:w-auto justify-center">
+              <ShieldCheck size={16} className="text-[#c9a84c] shrink-0" />
               Secure Processing
             </div>
           </div>
@@ -398,40 +399,41 @@ export default function Step5Content() {
       </div>
 
       {/* ── Progress card ── */}
-      <div className="px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 -mt-14 sm:-mt-16">
-        <div className="w-full max-w-6xl mx-auto rounded-2xl bg-[#f7f4ec] p-6 sm:p-8 shadow-sm">
+      <div className="px-4 sm:px-6 lg:px-8 pb-10 sm:pb-12 sm:pb-16 -mt-14 sm:-mt-16">
+        <div className="w-full max-w-6xl mx-auto rounded-2xl bg-[#f7f4ec] p-5 sm:p-6 sm:p-8 shadow-sm">
           <div className="flex items-start justify-between gap-4">
-            <div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0f1f38] leading-tight">
+            <div className="min-w-0">
+              <h2 className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0f1f38] leading-tight">
                 Overall Processing Progress
               </h2>
-              <p className="mt-1.5 text-sm text-gray-500">
+              <p className="mt-1.5 text-xs sm:text-sm text-gray-500">
                 Your heritage analysis is 35% complete
               </p>
             </div>
             <div className="text-right shrink-0">
-              <p className="text-2xl sm:text-3xl font-bold text-[#c9a84c]">
+              <p className="text-xl xs:text-2xl sm:text-3xl font-bold text-[#c9a84c]">
                 {progress}%
               </p>
               <p className="text-xs text-gray-400 mt-0.5">Complete</p>
             </div>
           </div>
-          <div className="mt-6 h-3 w-full rounded-full bg-[#0f1f38] overflow-hidden">
+          <div className="mt-5 sm:mt-6 h-3 w-full rounded-full bg-[#0f1f38] overflow-hidden">
             <div
               className="h-full rounded-full bg-[#c9a84c] transition-all duration-700"
               style={{ width: `${progress}%` }}
             />
           </div>
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
+          {/* Mini steps — 1 col on xs, 3 col on sm+ */}
+          <div className="mt-6 sm:mt-8 flex flex-col lg:flex-row items-start lg:items-center lg:justify-between gap-4 sm:gap-6 max-w-2xl mx-auto">
             {miniSteps.map((step) => (
               <div
                 key={step.label}
-                className="flex flex-col items-center gap-3 text-center">
+                className="flex flex-row lg:flex-col items-center gap-3 text-center">
                 <div
-                  className={`flex h-12 w-12 items-center justify-center rounded-xl ${step.iconBg}`}>
+                  className={`flex h-10 w-10 xs:h-12 xs:w-12 items-center justify-center rounded-xl shrink-0 ${step.iconBg}`}>
                   {step.icon}
                 </div>
-                <div>
+                <div className="text-left lg:text-center">
                   <p className="text-sm font-semibold text-[#0f1f38]">
                     {step.label}
                   </p>
@@ -444,11 +446,11 @@ export default function Step5Content() {
       </div>
 
       {/* ── 48-Hour Timeline ── */}
-      <div className="w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 bg-white">
+      <div className="w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-12 sm:py-16 bg-white">
         <div className="max-w-6xl mx-auto">
           {/* Heading */}
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0f1f38]">
+          <div className="text-center mb-10 sm:mb-12 sm:mb-16">
+            <h2 className="text-xl xs:text-2xl sm:text-3xl font-extrabold text-[#0f1f38]">
               48-Hour Processing Timeline
             </h2>
             <p className="mt-2 text-sm text-[#c9a84c]">
@@ -489,20 +491,22 @@ export default function Step5Content() {
           {/* ── Mobile single-column timeline ── */}
           <div className="md:hidden relative">
             {/* Left vertical line */}
-            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-[#c9a84c]/35" />
+            <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-[#c9a84c]/35" />
 
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-6 sm:gap-8">
               {timelineSteps.map((step) => (
-                <div key={step.id} className="relative flex items-start gap-4">
+                <div
+                  key={step.id}
+                  className="relative flex items-start gap-3 sm:gap-4">
                   {/* Node */}
                   <div className="shrink-0 z-10">
                     <div
-                      className={`flex h-12 w-12 items-center justify-center rounded-full border-4 shadow-md ${step.nodeBg} ${step.nodeBorder}`}>
+                      className={`flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border-4 shadow-md ${step.nodeBg} ${step.nodeBorder}`}>
                       {step.nodeIcon}
                     </div>
                   </div>
                   {/* Card */}
-                  <div className="flex-1 pt-1">{step.card}</div>
+                  <div className="flex-1 pt-1 min-w-0">{step.card}</div>
                 </div>
               ))}
             </div>
@@ -511,10 +515,10 @@ export default function Step5Content() {
       </div>
 
       {/* ── While You Wait: Understanding the Process ── */}
-      <div className="w-full pt-16 pb-24">
+      <div className="w-full pt-10 sm:pt-16 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8">
         {/* Heading */}
-        <div className="text-center mb-12 max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold leading-tight text-[#1e3a5f]">
+        <div className="text-center mb-8 sm:mb-12 max-w-6xl mx-auto">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-[40px] font-extrabold leading-tight text-[#1e3a5f]">
             While You Wait: Understanding the Process
           </h2>
           <p className="mt-3 text-[14px] text-gray-400">
@@ -522,22 +526,22 @@ export default function Step5Content() {
           </p>
         </div>
 
-        {/* 3 Cards */}
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
+        {/* 3 Cards — 1 col on mobile, 3 col on md+ */}
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5">
           {/* Card 1 — DNA Analysis */}
-          <div className="bg-[#F9F7F2] rounded-2xl p-7 flex flex-col">
-            <div className="h-[64px] w-[64px] rounded-xl bg-[#dbeafe] flex items-center justify-center mb-5">
-              <Users size={30} className="text-blue-600" />
+          <div className="bg-[#F9F7F2] rounded-2xl p-5 sm:p-7 flex flex-col">
+            <div className="h-[56px] w-[56px] sm:h-[64px] sm:w-[64px] rounded-xl bg-[#dbeafe] flex items-center justify-center mb-4 sm:mb-5">
+              <Users size={28} className="text-blue-600" />
             </div>
-            <h3 className="text-[19px] font-extrabold text-[#0f1f38] leading-snug mb-3">
+            <h3 className="text-[17px] sm:text-[19px] font-extrabold text-[#0f1f38] leading-snug mb-2 sm:mb-3">
               DNA Analysis Explained
             </h3>
-            <p className="text-[13px] text-gray-500 leading-relaxed mb-5">
+            <p className="text-[13px] text-gray-500 leading-relaxed mb-4 sm:mb-5">
               Your DNA file contains hundreds of thousands of genetic markers
               (SNPs). We analyze these to determine your ethnic composition,
               migration patterns, and potential relative matches.
             </p>
-            <ul className="flex flex-col gap-3 mt-auto">
+            <ul className="flex flex-col gap-2.5 sm:gap-3 mt-auto">
               {[
                 "Autosomal DNA for ethnicity estimates",
                 "Y-DNA for paternal lineage (if available)",
@@ -558,21 +562,21 @@ export default function Step5Content() {
           </div>
 
           {/* Card 2 — Historical Record Matching */}
-          <div className="bg-[#F9F7F2] rounded-2xl p-7 flex flex-col">
-            <div className="h-[64px] w-[64px] rounded-xl bg-[#ede9fe] flex items-center justify-center mb-5">
-              <Database size={28} className="text-violet-600" />
+          <div className="bg-[#F9F7F2] rounded-2xl p-5 sm:p-7 flex flex-col">
+            <div className="h-[56px] w-[56px] sm:h-[64px] sm:w-[64px] rounded-xl bg-[#ede9fe] flex items-center justify-center mb-4 sm:mb-5">
+              <Database size={26} className="text-violet-600" />
             </div>
-            <h3 className="text-[19px] font-extrabold text-violet-700 leading-snug mb-3">
+            <h3 className="text-[17px] sm:text-[19px] font-extrabold text-violet-700 leading-snug mb-2 sm:mb-3">
               Historical Record
               <br />
               Matching
             </h3>
-            <p className="text-[13px] text-gray-500 leading-relaxed mb-5">
+            <p className="text-[13px] text-gray-500 leading-relaxed mb-4 sm:mb-5">
               We cross-reference your genetic data with millions of historical
               records to build a verified family tree and uncover your
               ancestors&apos; stories.
             </p>
-            <ul className="flex flex-col gap-3 mt-auto">
+            <ul className="flex flex-col gap-2.5 sm:gap-3 mt-auto">
               {[
                 "Census records (1790-1950)",
                 "Immigration & naturalization documents",
@@ -593,19 +597,19 @@ export default function Step5Content() {
           </div>
 
           {/* Card 3 — Narrative Crafting */}
-          <div className="bg-[#F9F7F2] rounded-2xl p-7 flex flex-col">
-            <div className="h-[64px] w-[64px] rounded-xl bg-[#fef3c7] flex items-center justify-center mb-5">
-              <BookOpen size={28} className="text-amber-600" />
+          <div className="bg-[#F9F7F2] rounded-2xl p-5 sm:p-7 flex flex-col sm:col-span-2 md:col-span-1">
+            <div className="h-[56px] w-[56px] sm:h-[64px] sm:w-[64px] rounded-xl bg-[#fef3c7] flex items-center justify-center mb-4 sm:mb-5">
+              <BookOpen size={26} className="text-amber-600" />
             </div>
-            <h3 className="text-[19px] font-extrabold text-[#0f1f38] leading-snug mb-3">
+            <h3 className="text-[17px] sm:text-[19px] font-extrabold text-[#0f1f38] leading-snug mb-2 sm:mb-3">
               Narrative Crafting
             </h3>
-            <p className="text-[13px] text-gray-500 leading-relaxed mb-5">
+            <p className="text-[13px] text-gray-500 leading-relaxed mb-4 sm:mb-5">
               Our AI and genealogists collaborate to transform raw data into a
               compelling, readable story that brings your heritage to life with
               historical context.
             </p>
-            <ul className="flex flex-col gap-3 mt-auto">
+            <ul className="flex flex-col gap-2.5 sm:gap-3 mt-auto">
               {[
                 "Chronological family narrative",
                 "Historical context integration",
@@ -628,10 +632,10 @@ export default function Step5Content() {
       </div>
 
       {/* Processing Questions */}
-      <div className="w-full pt-16 pb-24">
+      <div className="w-full pt-10 sm:pt-16 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8">
         {/* Heading */}
-        <div className="text-center mb-12 max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold leading-tight text-[#1e3a5f]">
+        <div className="text-center mb-8 sm:mb-12 max-w-6xl mx-auto">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-[40px] font-extrabold leading-tight text-[#1e3a5f]">
             Processing Questions
           </h2>
           <p className="mt-3 text-[14px] text-gray-400">
@@ -642,7 +646,7 @@ export default function Step5Content() {
           <Accordion
             type="single"
             collapsible
-            className="flex flex-col gap-3 mt-6">
+            className="flex flex-col gap-3 mt-6 text-left">
             {[
               {
                 question: "Why does processing take 48 hours?",
@@ -676,17 +680,17 @@ export default function Step5Content() {
               <AccordionItem
                 key={i}
                 value={`faq-${i}`}
-                className="bg-[#F9F7F2] rounded-[14px] border-0 px-5 overflow-hidden">
+                className="bg-[#F9F7F2] rounded-[14px] border-0 px-4 sm:px-5 overflow-hidden">
                 <AccordionTrigger
                   className={cn(
-                    "text-[14px] sm:text-[15px] font-medium text-[#1B2B4B] py-5",
+                    "text-[13px] xs:text-[14px] sm:text-[15px] font-medium text-[#1B2B4B] py-4 sm:py-5",
                     "hover:no-underline [&[data-state=open]]:text-[#B8912A]",
                     "[&>svg]:text-[#888] [&[data-state=open]>svg]:text-[#B8912A]",
                     "text-left",
                   )}>
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-[13px] sm:text-[13.5px] text-[#6B6B6B] leading-relaxed pb-5">
+                <AccordionContent className="text-[12px] xs:text-[13px] sm:text-[13.5px] text-[#6B6B6B] leading-relaxed pb-4 sm:pb-5">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
