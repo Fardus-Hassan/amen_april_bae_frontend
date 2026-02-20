@@ -16,7 +16,16 @@ import {
   Map,
   FileText,
   Download,
+  Database,
+  Users,
 } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { cn } from "@/lib/utils";
 
 /* ─── Progress card mini-steps ─── */
 const miniSteps = [
@@ -436,7 +445,7 @@ export default function Step5Content() {
 
       {/* ── 48-Hour Timeline ── */}
       <div className="w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 bg-white">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* Heading */}
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0f1f38]">
@@ -498,6 +507,191 @@ export default function Step5Content() {
               ))}
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* ── While You Wait: Understanding the Process ── */}
+      <div className="w-full pt-16 pb-24">
+        {/* Heading */}
+        <div className="text-center mb-12 max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold leading-tight text-[#1e3a5f]">
+            While You Wait: Understanding the Process
+          </h2>
+          <p className="mt-3 text-[14px] text-gray-400">
+            Learn what happens behind the scenes during your heritage analysis
+          </p>
+        </div>
+
+        {/* 3 Cards */}
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
+          {/* Card 1 — DNA Analysis */}
+          <div className="bg-[#F9F7F2] rounded-2xl p-7 flex flex-col">
+            <div className="h-[64px] w-[64px] rounded-xl bg-[#dbeafe] flex items-center justify-center mb-5">
+              <Users size={30} className="text-blue-600" />
+            </div>
+            <h3 className="text-[19px] font-extrabold text-[#0f1f38] leading-snug mb-3">
+              DNA Analysis Explained
+            </h3>
+            <p className="text-[13px] text-gray-500 leading-relaxed mb-5">
+              Your DNA file contains hundreds of thousands of genetic markers
+              (SNPs). We analyze these to determine your ethnic composition,
+              migration patterns, and potential relative matches.
+            </p>
+            <ul className="flex flex-col gap-3 mt-auto">
+              {[
+                "Autosomal DNA for ethnicity estimates",
+                "Y-DNA for paternal lineage (if available)",
+                "mtDNA for maternal lineage",
+                "Haplogroup identification",
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-2.5 text-[13px] text-gray-700">
+                  <CheckCircle2
+                    size={15}
+                    className="text-blue-500 shrink-0 mt-[2px]"
+                  />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Card 2 — Historical Record Matching */}
+          <div className="bg-[#F9F7F2] rounded-2xl p-7 flex flex-col">
+            <div className="h-[64px] w-[64px] rounded-xl bg-[#ede9fe] flex items-center justify-center mb-5">
+              <Database size={28} className="text-violet-600" />
+            </div>
+            <h3 className="text-[19px] font-extrabold text-violet-700 leading-snug mb-3">
+              Historical Record
+              <br />
+              Matching
+            </h3>
+            <p className="text-[13px] text-gray-500 leading-relaxed mb-5">
+              We cross-reference your genetic data with millions of historical
+              records to build a verified family tree and uncover your
+              ancestors&apos; stories.
+            </p>
+            <ul className="flex flex-col gap-3 mt-auto">
+              {[
+                "Census records (1790-1950)",
+                "Immigration & naturalization documents",
+                "Birth, marriage, death certificates",
+                "Military service records",
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-2.5 text-[13px] text-gray-700">
+                  <CheckCircle2
+                    size={15}
+                    className="text-violet-500 shrink-0 mt-[2px]"
+                  />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Card 3 — Narrative Crafting */}
+          <div className="bg-[#F9F7F2] rounded-2xl p-7 flex flex-col">
+            <div className="h-[64px] w-[64px] rounded-xl bg-[#fef3c7] flex items-center justify-center mb-5">
+              <BookOpen size={28} className="text-amber-600" />
+            </div>
+            <h3 className="text-[19px] font-extrabold text-[#0f1f38] leading-snug mb-3">
+              Narrative Crafting
+            </h3>
+            <p className="text-[13px] text-gray-500 leading-relaxed mb-5">
+              Our AI and genealogists collaborate to transform raw data into a
+              compelling, readable story that brings your heritage to life with
+              historical context.
+            </p>
+            <ul className="flex flex-col gap-3 mt-auto">
+              {[
+                "Chronological family narrative",
+                "Historical context integration",
+                "Migration journey mapping",
+                "Cultural heritage insights",
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-2.5 text-[13px] text-gray-700">
+                  <CheckCircle2
+                    size={15}
+                    className="text-amber-500 shrink-0 mt-[2px]"
+                  />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Processing Questions */}
+      <div className="w-full pt-16 pb-24">
+        {/* Heading */}
+        <div className="text-center mb-12 max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold leading-tight text-[#1e3a5f]">
+            Processing Questions
+          </h2>
+          <p className="mt-3 text-[14px] text-gray-400">
+            Learn what happens behind the scenes during your heritage analysis
+          </p>
+
+          {/* Accordion */}
+          <Accordion
+            type="single"
+            collapsible
+            className="flex flex-col gap-3 mt-6">
+            {[
+              {
+                question: "Why does processing take 48 hours?",
+                answer: "Details about why processing takes 48 hours.",
+              },
+              {
+                question: "Can I speed up the process?",
+                answer: "Details on whether the process can be sped up.",
+              },
+              {
+                question: "What if processing takes longer than 48 hours?",
+                answer:
+                  "Information about what happens if processing exceeds 48 hours.",
+              },
+              {
+                question: "Can I see partial results before it's complete?",
+                answer:
+                  "Explanation of whether partial results are visible during the process.",
+              },
+              {
+                question: "What happens after the 48 hours?",
+                answer:
+                  "Details about the steps or actions taken after 48 hours.",
+              },
+              {
+                question: "Is my data safe during processing?",
+                answer:
+                  "Assurances regarding data safety during the processing period.",
+              },
+            ].map((faq, i) => (
+              <AccordionItem
+                key={i}
+                value={`faq-${i}`}
+                className="bg-[#F9F7F2] rounded-[14px] border-0 px-5 overflow-hidden">
+                <AccordionTrigger
+                  className={cn(
+                    "text-[14px] sm:text-[15px] font-medium text-[#1B2B4B] py-5",
+                    "hover:no-underline [&[data-state=open]]:text-[#B8912A]",
+                    "[&>svg]:text-[#888] [&[data-state=open]>svg]:text-[#B8912A]",
+                    "text-left",
+                  )}>
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-[13px] sm:text-[13.5px] text-[#6B6B6B] leading-relaxed pb-5">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
     </div>
