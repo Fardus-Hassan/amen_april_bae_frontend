@@ -356,11 +356,9 @@ export default function HeritageReportContent() {
         </div>
 
         {/* ── Notable Ancestors ── */}
-        <section className="mt-8 pb-12" style={{ backgroundColor: "#2C3220" }}>
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-8">
-            <h2
-              className="font-serif font-bold text-xl mb-5"
-              style={{ color: "#D4B86A" }}>
+        <section className="mt-8 pb-12">
+          <div>
+            <h2 className="font-merriweather font-semibold text-[30px] mb-5">
               Your Notable Ancestors
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
