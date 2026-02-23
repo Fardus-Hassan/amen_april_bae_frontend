@@ -22,3 +22,4 @@ export { CrownIcon } from "./CrownIcon";
 export { ArrowLeftIcon } from "./ArrowLeftIcon";
 export { StarIcon } from "./StarIcon";
 export { QuoteMarkIcon } from "./QuoteMarkIcon";
+export { ShieldLockIcon } from "./ShieldLockIcon";

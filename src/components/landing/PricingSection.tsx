@@ -77,7 +77,7 @@ export function PricingSection() {
         },
       }}
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.header className="text-center" variants={fadeInUp}>
           <h2 className="font-merriweather text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">
             <span style={{ color: "#1A2B4C" }}>Choose Your </span>
