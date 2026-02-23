@@ -8,9 +8,9 @@ export default function LandingLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-landing-bg">
+    <div className="bg-landing-bg">
       <Navbar />
-      <main className="pt-[50px] lg:pt-[81px]">{children}</main>
+      <main className="min-h-screen pt-[50px] lg:pt-[81px]">{children}</main>
       <Footer />
     </div>
   );
