@@ -26,6 +26,8 @@ import {
 } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 // ── Data ─────────────────────────────────────────────────────────────────────
 
@@ -234,6 +236,7 @@ const FAQ_ITEMS = [
 export default function Step3Content() {
   const [progress] = useState(45);
 
+  const router = useRouter();
   return (
     <div className="flex flex-col items-start justify-center min-h-screen bg-[#FAF8F5] px-4 py-10">
       <div className="w-full max-w-[900px] mx-auto flex flex-col gap-0 mb-12">
@@ -242,9 +245,7 @@ export default function Step3Content() {
         ════════════════════════════════════════ */}
         <div className="w-full bg-white rounded-[20px] px-6 sm:px-10 md:px-12 pt-10 pb-10 flex flex-col shadow-sm mb-5">
           {/* ── Header ── */}
-          <h1
-            className="text-[30px] sm:text-[36px] md:text-[40px] font-bold text-[#1B2B4B] leading-tight tracking-[-0.02em] mb-2"
-            style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}>
+          <h1 className="text-[30px] sm:text-[36px] md:text-[40px] font-bold text-[#1B2B4B] leading-tight tracking-[-0.02em] mb-2">
             Upload Your Documents
           </h1>
           <p className="text-[13.5px] sm:text-[14px] text-[#6B6B6B] leading-relaxed mb-7">
@@ -256,9 +257,7 @@ export default function Step3Content() {
 
           {/* ── Progress Banner ── */}
           <div className="w-full bg-[#1B2B4B] rounded-[14px] px-6 py-6 mb-8">
-            <h2
-              className="text-[22px] sm:text-[26px] font-bold text-white mb-1 leading-tight"
-              style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}>
+            <h2 className="text-[22px] sm:text-[26px] font-bold text-white mb-1 leading-tight font-merriweather">
               Your Progress
             </h2>
             <p className="text-[13px] text-[#B0BCCE] mb-5 font-medium">
@@ -281,9 +280,7 @@ export default function Step3Content() {
               <Dna className="w-5 h-5 text-[#B8912A]" strokeWidth={1.5} />
             </div>
             <div>
-              <h3
-                className="text-[17px] sm:text-[18px] font-bold text-[#1B2B4B] leading-tight"
-                style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}>
+              <h3 className="text-[17px] sm:text-[18px] font-bold text-[#1B2B4B] leading-tight font-merriweather">
                 DNA Data Upload
               </h3>
               <p className="text-[13px] sm:text-[13.5px] text-[#6B6B6B]">
@@ -301,11 +298,7 @@ export default function Step3Content() {
                 className="bg-[#F5F2EC] rounded-[12px] px-4 py-4 flex flex-col gap-3">
                 {p.logo}
                 <div>
-                  <p
-                    className="text-[14px] font-bold text-[#1B2B4B]"
-                    style={{
-                      fontFamily: "'Georgia', 'Times New Roman', serif",
-                    }}>
+                  <p className="text-[14px] font-bold text-[#1B2B4B] font-merriweather">
                     {p.name}
                   </p>
                   <p className="text-[12px] text-[#888]">{p.sub}</p>
@@ -347,11 +340,7 @@ export default function Step3Content() {
                     )}>
                     {s.icon}
                   </div>
-                  <h3
-                    className="text-[17px] sm:text-[19px] font-bold text-[#1B2B4B] leading-tight"
-                    style={{
-                      fontFamily: "'Georgia', 'Times New Roman', serif",
-                    }}>
+                  <h3 className="text-[17px] sm:text-[19px] font-bold text-[#1B2B4B] leading-tight font-merriweather">
                     {s.title}
                   </h3>
                 </div>
@@ -401,27 +390,38 @@ export default function Step3Content() {
           {/* ════════════════════════════════════════
             NAVIGATION
         ════════════════════════════════════════ */}
-          <div className="w-full flex items-center justify-end gap-3 pt-2">
+          <div className="w-full flex items-center justify-end gap-3 mt-4">
             <Button
+              onClick={() => router.back()}
               variant="outline"
               className={cn(
                 "h-[44px] sm:h-[48px] px-5 sm:px-6 rounded-[10px]",
                 "border border-[#D0CBC2] bg-white text-[#1A1A1A]",
-                "text-[14px] sm:text-[14.5px] font-medium gap-2",
+                "text-[14px] sm:text-[14.5px] font-semibold gap-2",
                 "hover:bg-[#F9F7F4] transition-colors duration-150 shadow-none",
               )}>
-              <ArrowLeft className="w-[14px] h-[14px]" strokeWidth={2} />
+              <ArrowLeft
+                className="w-[14px] h-[14px] sm:w-[15px] sm:h-[15px]"
+                strokeWidth={2}
+              />
               Back
             </Button>
+
             <Button
               className={cn(
                 "h-[44px] sm:h-[48px] px-6 sm:px-8 rounded-[10px]",
-                "bg-[#B8912A] hover:bg-[#A37F24] text-white",
+                "bg-[#C5A065] hover:bg-[#c29753] text-white",
                 "text-[14px] sm:text-[14.5px] font-semibold gap-2",
                 "shadow-none transition-colors duration-150",
-              )}>
-              Next
-              <ArrowRight className="w-[14px] h-[14px]" strokeWidth={2} />
+              )}
+              asChild>
+              <Link href={"/dna/step-4"}>
+                Next
+                <ArrowRight
+                  className="w-[14px] h-[14px] sm:w-[15px] sm:h-[15px]"
+                  strokeWidth={2}
+                />
+              </Link>
             </Button>
           </div>
         </div>
@@ -441,9 +441,7 @@ export default function Step3Content() {
               />
             </div>
             <div>
-              <h2
-                className="text-[20px] sm:text-[24px] font-bold text-[#1B2B4B] leading-tight"
-                style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}>
+              <h2 className="text-[20px] sm:text-[24px] font-bold text-[#1B2B4B] leading-tight font-merriweather">
                 File Validation & Quality Check
               </h2>
               <p className="text-[13px] sm:text-[13.5px] text-[#6B6B6B]">
@@ -465,11 +463,7 @@ export default function Step3Content() {
                       "w-10 h-10 rounded-[10px] flex items-center justify-center flex-shrink-0",
                       qc.iconBg,
                     )}></div>
-                  <span
-                    className="text-[15px] font-bold text-[#1B2B4B]"
-                    style={{
-                      fontFamily: "'Georgia', 'Times New Roman', serif",
-                    }}>
+                  <span className="text-[15px] font-bold text-[#1B2B4B]">
                     {qc.title}
                   </span>
                 </div>
@@ -504,9 +498,7 @@ export default function Step3Content() {
               <div className="w-10 h-10 rounded-[10px] bg-[#F5C842] flex items-center justify-center flex-shrink-0">
                 <AlertTriangle className="w-5 h-5 text-white" strokeWidth={2} />
               </div>
-              <h3
-                className="text-[17px] sm:text-[20px] font-bold text-[#1B2B4B] leading-tight"
-                style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}>
+              <h3 className="text-[17px] sm:text-[20px] font-bold text-[#1B2B4B] leading-tight font-merriweather">
                 Common Upload Issues & Solutions
               </h3>
             </div>
@@ -537,9 +529,7 @@ export default function Step3Content() {
         ════════════════════════════════════════ */}
         <div className="w-full rounded-[20px] px-6 sm:px-10 md:px-12 pt-10 pb-10 flex flex-col mb-5">
           {/* Heading */}
-          <h2
-            className="text-[26px] sm:text-[32px] font-bold text-[#B8912A] text-center leading-tight tracking-[-0.01em] mb-2"
-            style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}>
+          <h2 className="text-[26px] sm:text-[32px] font-bold text-[#B8912A] text-center leading-tight tracking-[-0.01em] mb-2 font-merriweather">
             Processing Questions
           </h2>
           <p className="text-[13.5px] text-[#888] text-center mb-8">
