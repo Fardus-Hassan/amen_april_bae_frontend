@@ -171,9 +171,7 @@ function ConsentCard({
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex flex-wrap items-center gap-[8px]">
-            <span
-              className="text-[14px] font-bold text-[#1B2B4B] leading-snug"
-              style={{ fontFamily: "'Georgia','Times New Roman',serif" }}>
+            <span className="text-[14px] font-bold text-[#1B2B4B] leading-snug">
               {title}
             </span>
             <Badge kind={badge} />
@@ -255,7 +253,7 @@ const RETENTION = [
   {
     emoji: "👤",
     title: "Active Account Data",
-    desc: "Retained as long as your account is active and for up to 30 days after account closure to allow for account recovery.",
+    desc: "Retained as long as your account is active and for up to 90 days after account closure to allow for account recovery.",
   },
   {
     emoji: "📷",
@@ -265,7 +263,7 @@ const RETENTION = [
   {
     emoji: "🔬",
     title: "Research Data",
-    desc: "Anonymised aggregated data may be retained indefinitely for research purposes, but cannot be linked back to you.",
+    desc: "Anonymized aggregated data may be retained indefinitely for research purposes, but cannot be linked back to you.",
   },
   {
     emoji: "⚡",
@@ -305,13 +303,11 @@ export default function Step4Content() {
   const optionalSelected = optionalIds.filter((id) => map[id]).length;
 
   return (
-    <div className="min-h-screen bg-white px-4 sm:px-6 py-8">
-      <div className="mx-auto w-full max-w-[700px] flex flex-col gap-[16px]">
+    <div className="min-h-screen bg-[#FAF8F5] px-4 sm:px-6 py-8">
+      <div className="mx-auto w-full max-w-[900px] p-6 bg-white flex flex-col gap-[16px]">
         {/* ── PAGE HEADER ── */}
         <div>
-          <h1
-            className="text-[26px] sm:text-[30px] font-bold text-[#1B2B4B] leading-tight tracking-[-0.01em]"
-            style={{ fontFamily: "'Georgia','Times New Roman',serif" }}>
+          <h1 className="text-[26px] sm:text-[30px] font-bold text-[#1B2B4B] leading-tight tracking-[-0.01em]">
             Data Processing Consent
           </h1>
           <p className="text-[13px] text-[#888] mt-[4px]">
@@ -329,9 +325,7 @@ export default function Step4Content() {
               />
             </div>
             <div>
-              <p
-                className="text-[13.5px] font-bold text-[#7A5800]"
-                style={{ fontFamily: "'Georgia','Times New Roman',serif" }}>
+              <p className="text-[13.5px] font-bold text-[#7A5800]">
                 Your Privacy Matters
               </p>
               <p className="text-[12.5px] text-[#7A5800] leading-relaxed mt-[3px]">
@@ -348,7 +342,7 @@ export default function Step4Content() {
               strokeWidth={2}
             />
             <p className="text-[11.5px] text-[#92400E] leading-snug">
-              You can review or modify these permissions at any time from your
+              You can revoke or modify these permissions at any time from your
               account dashboard.
             </p>
           </div>
@@ -366,16 +360,16 @@ export default function Step4Content() {
           locked
           onToggle={() => toggle("genetic")}>
           <p className="text-[12.5px] text-[#555] leading-relaxed">
-            This permission allows us to analyse your DNA data to detect
-            disease, migration patterns, and ethnic composition. This is the
-            core service of Heritage Archive and is essential for creating your
-            personalised family narratives.
+            This permission allows us to analyze your DNA data to identify
+            ancestral origins, migration patterns, and ethnic composition. This
+            is the core service of Heritage Archive and is essential for
+            creating your personalized family narrative.
           </p>
           <ul className="flex flex-col gap-[7px]">
             {[
               "Analysis of genetic markers for ethnicity estimation",
               "Identification of ancestral migration routes and timelines",
-              "Creation of personalised heritage narrative and biography",
+              "Creation of personalized heritage narrative and biography",
               "Secure storage with AES-256 encryption",
             ].map((f) => (
               <Feature key={f} text={f} />
@@ -398,16 +392,16 @@ export default function Step4Content() {
           checked={map.photos}
           onToggle={() => toggle("photos")}>
           <p className="text-[12.5px] text-[#555] leading-relaxed">
-            This permission allows us to analyse your DNA data to identify
+            This permission allows us to analyze your DNA data to identify
             ancestral origins, migration patterns, and ethnic composition. This
-            is the core of Heritage Archive and is essential for creating your
-            personalised family narrative.
+            is the core service of Heritage Archive and is essential for
+            creating your personalized family narrative.
           </p>
           <ul className="flex flex-col gap-[7px]">
             {[
               "Analysis of genetic markers for ethnicity estimation",
               "Identification of ancestral migration routes and timelines",
-              "Creation of personalised heritage narrative and biography",
+              "Creation of personalized heritage narrative and biography",
               "Secure storage with AES-256 encryption",
             ].map((f) => (
               <Feature key={f} text={f} />
@@ -415,7 +409,7 @@ export default function Step4Content() {
           </ul>
           <WarnBox
             kind="info"
-            text="Regional Notice: If you reside in Texas or Illinois, this consent is required by state biometric privacy laws (BIPA). You have the right to know how long this data is retained (up to 3 years after account closure) and can request deletion at any time."
+            text="Regional Notice: If you reside in Texas or Illinois, this consent is required by state biometric privacy laws (BIPA). You have the right to know how long this data is retained (max 3 years after account closure) and can request deletion at any time."
             extra={
               <a
                 href="#"
@@ -437,14 +431,14 @@ export default function Step4Content() {
           checked={map.research}
           onToggle={() => toggle("research")}>
           <p className="text-[12.5px] text-[#555] leading-relaxed">
-            Allow anonymised genetic data to be used for ongoing genealogical
-            and historical research studies. This helps advance the field of
-            ancestry science and may contribute to discoveries about human
-            migration patterns.
+            Allow your anonymized genetic data to be used in aggregated
+            genealogical and historical research studies. This helps advance the
+            field of ancestry science and may contribute to discoveries about
+            human migration patterns.
           </p>
           <ul className="flex flex-col gap-[7px]">
             {[
-              "Data is completely anonymised before inclusion in research datasets",
+              "Data is completely anonymized before inclusion in research datasets",
               "No personally identifiable information is ever shared",
               "Contributes to academic studies on human ancestry and migration",
               "May help improve ancestry algorithms for all users",
@@ -469,9 +463,9 @@ export default function Step4Content() {
           checked={map.dnamatch}
           onToggle={() => toggle("dnamatch")}>
           <p className="text-[12.5px] text-[#555] leading-relaxed">
-            Allow potential relatives who are identified in our database and
-            allow them to view limited profile information (name, ancestral
-            regions) to facilitate connections.
+            Receive notifications when potential relatives are identified in our
+            database and allow them to view limited profile information (name,
+            ancestral regions) to facilitate connections.
           </p>
           <ul className="flex flex-col gap-[7px]">
             {[
@@ -504,7 +498,7 @@ export default function Step4Content() {
             {[
               "Monthly newsletter with genealogy tips and success stories",
               "Exclusive early access to new features and tools",
-              "Personalised recommendations based on your ancestry regions",
+              "Personalized recommendations based on your ancestry regions",
               "Unsubscribe anytime with one click",
             ].map((f) => (
               <Feature key={f} text={f} />
@@ -583,8 +577,8 @@ export default function Step4Content() {
           <p className="text-[11.5px] text-[#666] leading-relaxed">
             These rights are guaranteed under GDPR (EU), CCPA (California), and
             other applicable privacy regulations. To exercise any of these
-            rights, visit your Account&apos;s Consent dashboard or contact our
-            Data Protection Officer at{" "}
+            rights, visit your Account & Consent dashboard or contact our Data
+            Protection Officer at{" "}
             <a
               href="mailto:privacy@heritagearchive.com"
               className="text-[#2563EB] hover:underline">
@@ -626,9 +620,7 @@ export default function Step4Content() {
             CONSENT SUMMARY
         ══════════════════════════════════════ */}
         <div className="bg-white border border-[#E3DDD6] rounded-[12px] px-[18px] py-[16px] flex flex-col gap-[8px]">
-          <p
-            className="text-[14px] font-bold text-[#1B2B4B]"
-            style={{ fontFamily: "'Georgia','Times New Roman',serif" }}>
+          <p className="text-[14px] font-bold text-[#1B2B4B]">
             Consent Summary
           </p>
           <div className="flex items-center justify-between py-[8px] border-b border-[#F0EDE8]">
@@ -643,14 +635,14 @@ export default function Step4Content() {
               {optionalSelected} of {optionalIds.length} selected
             </span>
           </div>
+          <p className="text-[11.5px] text-[#666] leading-relaxed mt-[4px]">
+            You can revoke these permissions at any time from your dashboard.
+          </p>
         </div>
 
         {/* ── FOOTER NOTE ── */}
         <div className="text-center">
           <p className="text-[12px] text-[#888] leading-relaxed">
-            You can revoke these permissions at any time from your dashboard.
-          </p>
-          <p className="text-[12px] text-[#888] leading-relaxed mt-[2px]">
             By continuing, you acknowledge that you&apos;ve read and understood
             our{" "}
             <a href="#" className="text-[#2563EB] hover:underline">
@@ -665,7 +657,7 @@ export default function Step4Content() {
         </div>
 
         {/* ── NAVIGATION BUTTONS ── */}
-        <div className="flex items-center justify-between gap-3 pb-4">
+        <div className="flex items-center justify-between gap-3 pt-4 pb-2">
           <button
             type="button"
             className="h-[44px] px-[20px] rounded-[10px] border border-[#D0CBC2] bg-white text-[13.5px] font-medium text-[#333] hover:bg-[#F9F7F4] transition-colors">
@@ -673,8 +665,8 @@ export default function Step4Content() {
           </button>
           <button
             type="button"
-            className="h-[44px] px-[24px] rounded-[10px] bg-[#B8912A] hover:bg-[#A37F24] text-white text-[13.5px] font-semibold flex items-center gap-2 transition-colors">
-            I Agree &amp; Continue
+            className="h-[44px] px-[24px] rounded-[10px] bg-[#B8912A] hover:bg-[#A37F24] text-white text-[13.5px] font-semibold flex items-center gap-2 transition-colors shadow-sm">
+            I Agree & Continue
             <ArrowRight className="w-[14px] h-[14px]" strokeWidth={2} />
           </button>
         </div>
