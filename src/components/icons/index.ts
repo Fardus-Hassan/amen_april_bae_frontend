@@ -11,3 +11,7 @@ export { UsersIcon } from "./UsersIcon";
 export { MapPinIcon } from "./MapPinIcon";
 export { PlaneIcon } from "./PlaneIcon";
 export { CheckIcon } from "./CheckIcon";
+export { UploadIcon } from "./UploadIcon";
+export { BarChartIcon } from "./BarChartIcon";
+export { UserCheckIcon } from "./UserCheckIcon";
+export { BookOpenIcon } from "./BookOpenIcon";
