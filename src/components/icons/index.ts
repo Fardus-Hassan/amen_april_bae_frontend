@@ -16,3 +16,4 @@ export { BarChartIcon } from "./BarChartIcon";
 export { UserCheckIcon } from "./UserCheckIcon";
 export { BookOpenIcon } from "./BookOpenIcon";
 export { SparkIcon } from "./SparkIcon";
+export { QuoteIcon } from "./QuoteIcon";
