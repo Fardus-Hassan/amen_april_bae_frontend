@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { BellIcon, ProfileIcon, MenuIcon } from "@/components/icons";
 import {
@@ -13,12 +14,19 @@ import {
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/#pricing", label: "Pricing" },
-  { href: "/#community", label: "Community" },
-  { href: "/#contact", label: "Contact Us" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/community", label: "Community" },
+  { href: "/contact", label: "Contact Us" },
 ];
 
+function isActive(href: string, pathname: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(href + "/");
+}
+
 export function Navbar() {
+  const pathname = usePathname();
+
   return (
     <motion.header
       className="fixed top-0 left-0 right-0 z-50 w-full bg-[#FAFAFA] backdrop-blur-sm border-b border-(--landing-navy)/10 lg:py-0 py-1"
@@ -40,19 +48,23 @@ export function Navbar() {
 
         {/* Desktop nav links */}
         <ul className="hidden items-center justify-center gap-8 lg:flex xl:w-1/3">
-          {NAV_LINKS.map(({ href, label }) => (
-            <li key={href}>
-              <Link
-                href={href}
-                className={`relative py-2 text-sm font-bold text-secondary transition hover:opacity-80 ${
-                  href === "/"
-                    ? "after:absolute after:left-1/2 after:-translate-x-1/2 after:right-0 after:w-[70px] after:-bottom-6 after:h-1 after:bg-secondary after:content-['']"
-                    : ""
-                }`}>
-                {label}
-              </Link>
-            </li>
-          ))}
+          {NAV_LINKS.map(({ href, label }) => {
+            const active = isActive(href, pathname ?? "");
+            return (
+              <li key={href}>
+                <Link
+                  href={href}
+                  className={`relative py-2 text-sm font-bold text-secondary transition hover:opacity-80 ${
+                    active
+                      ? " after:absolute after:left-1/2 after:-translate-x-1/2 after:right-0 after:w-[70px] after:-bottom-6 after:h-1 after:bg-secondary after:content-['']"
+                      : ""
+                  }`}
+                >
+                  {label}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         {/* Right: icons + buttons */}
@@ -125,21 +137,22 @@ export function Navbar() {
 
                 {/* Nav links */}
                 <ul className="flex flex-col gap-1 px-4 pt-4 flex-1">
-                  {NAV_LINKS.map(({ href, label }) => (
-                    <li key={href}>
-                      <SheetClose asChild>
-                        <Link
-                          href={href}
-                          className={`block rounded-lg px-3 py-2.5 text-sm font-medium text-landing-navy transition hover:bg-(--landing-navy)/10 ${
-                            href === "/"
-                              ? "font-semibold bg-(--landing-navy)/10"
-                              : ""
-                          }`}>
-                          {label}
-                        </Link>
-                      </SheetClose>
-                    </li>
-                  ))}
+                  {NAV_LINKS.map(({ href, label }) => {
+                    const active = isActive(href, pathname ?? "");
+                    return (
+                      <li key={href}>
+                        <SheetClose asChild>
+                          <Link
+                            href={href}
+                            className={`block rounded-lg px-3 py-2.5 text-sm font-medium text-landing-navy transition hover:bg-(--landing-navy)/10 ${
+                              active ? "font-semibold bg-(--landing-navy)/10" : ""
+                            }`}>
+                            {label}
+                          </Link>
+                        </SheetClose>
+                      </li>
+                    );
+                  })}
                 </ul>
 
                 {/* Sidebar footer: auth buttons */}
