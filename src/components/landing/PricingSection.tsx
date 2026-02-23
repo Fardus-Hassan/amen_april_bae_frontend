@@ -64,8 +64,7 @@ const PLANS = [
 export function PricingSection() {
   return (
     <motion.section
-      className="py-14 sm:py-16 lg:py-20"
-      style={{ backgroundColor: "#F9F7F2" }}
+      className="py-14 sm:py-16 lg:py-20 bg-landing-bg"
       initial="hidden"
       whileInView="visible"
       viewport={defaultViewport}

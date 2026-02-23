@@ -9,6 +9,7 @@ import { PricingSection } from "@/components/landing/PricingSection";
 import { TestimonialSection } from "@/components/landing/TestimonialSection";
 import { PrivacySection } from "@/components/landing/PrivacySection";
 import { FAQSection } from "@/components/landing/FAQSection";
+import { CTASection } from "@/components/landing/CTASection";
 
 export default function LandingPage() {
   return (
@@ -24,6 +25,7 @@ export default function LandingPage() {
       <TestimonialSection />
       <PrivacySection />
       <FAQSection />
+      <CTASection />
     </>
   );
 }

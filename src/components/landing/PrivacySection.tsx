@@ -36,8 +36,7 @@ const PRIVACY_CARDS = [
 export function PrivacySection() {
   return (
     <motion.section
-      className="privacy-section py-14 sm:py-16 lg:py-20"
-      style={{ backgroundColor: "#F9F7F2" }}
+      className="privacy-section py-14 sm:py-16 lg:py-20 bg-landing-bg"
       initial="hidden"
       whileInView="visible"
       viewport={defaultViewport}
