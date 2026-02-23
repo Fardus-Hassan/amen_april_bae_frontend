@@ -1,3 +1,5 @@
+import Step2Content from "@/components/dna/Step2Content";
+
 export default function page() {
-  return <div>page component step 2</div>;
+  return <Step2Content />;
 }
