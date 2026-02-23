@@ -5,6 +5,8 @@ import { Shield, ArrowLeft, ArrowRight } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const features = [
   {
@@ -32,6 +34,8 @@ const features = [
 export default function Step1Content() {
   const [consented, setConsented] = useState(true);
 
+  const router = useRouter();
+
   return (
     <div className="flex items-center justify-center h-[calc(100vh-81px)]">
       <div className="w-full max-w-[900px] bg-white rounded-[20px] px-6 pt-10 pb-8 flex flex-col items-center shadow-sm">
@@ -42,9 +46,7 @@ export default function Step1Content() {
         />
 
         {/* Title */}
-        <h1
-          className="text-[28px] sm:text-[34px] md:text-[38px] font-bold text-[#1B2B4B] text-center leading-tight tracking-[-0.02em] mb-3"
-          style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}>
+        <h1 className="text-[28px] sm:text-[34px] md:text-[38px] font-bold text-[#1B2B4B] text-center leading-tight tracking-[-0.02em] mb-3 font-merriweather">
           Access Your Permission
         </h1>
 
@@ -60,9 +62,7 @@ export default function Step1Content() {
             <div
               key={idx}
               className="bg-[#F5F2EC] rounded-[14px] px-5 sm:px-6 py-5 flex flex-col gap-2">
-              <h3
-                className="text-[16px] sm:text-[17px] font-bold text-[#1B2B4B] leading-tight"
-                style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}>
+              <h3 className="text-[16px] sm:text-[17px] font-bold text-[#1B2B4B] leading-tight">
                 {feature.title}
               </h3>
               <p className="text-[13px] sm:text-[13.5px] text-[#4A4A4A] leading-relaxed">
@@ -101,11 +101,12 @@ export default function Step1Content() {
         {/* Navigation buttons */}
         <div className="w-full flex items-center justify-end gap-3">
           <Button
+            onClick={() => router.back()}
             variant="outline"
             className={cn(
               "h-[44px] sm:h-[48px] px-5 sm:px-6 rounded-[10px]",
               "border border-[#D0CBC2] bg-white text-[#1A1A1A]",
-              "text-[14px] sm:text-[14.5px] font-medium gap-2",
+              "text-[14px] sm:text-[14.5px] font-semibold gap-2",
               "hover:bg-[#F9F7F4] transition-colors duration-150 shadow-none",
             )}>
             <ArrowLeft
@@ -118,15 +119,18 @@ export default function Step1Content() {
           <Button
             className={cn(
               "h-[44px] sm:h-[48px] px-6 sm:px-8 rounded-[10px]",
-              "bg-[#B8912A] hover:bg-[#A37F24] text-white",
+              "bg-[#C5A065] hover:bg-[#c29753] text-white",
               "text-[14px] sm:text-[14.5px] font-semibold gap-2",
               "shadow-none transition-colors duration-150",
-            )}>
-            Next
-            <ArrowRight
-              className="w-[14px] h-[14px] sm:w-[15px] sm:h-[15px]"
-              strokeWidth={2}
-            />
+            )}
+            asChild>
+            <Link href={"/dna/step-2"}>
+              Next
+              <ArrowRight
+                className="w-[14px] h-[14px] sm:w-[15px] sm:h-[15px]"
+                strokeWidth={2}
+              />
+            </Link>
           </Button>
         </div>
       </div>

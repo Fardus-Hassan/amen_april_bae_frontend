@@ -11,6 +11,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 // ── Data ─────────────────────────────────────────────────────────────────────
 
@@ -174,13 +176,12 @@ export default function Step2Content() {
       return next;
     });
 
+  const router = useRouter();
   return (
     <div className="flex items-start justify-center min-h-screen bg-[#FAF8F5] px-4 py-10">
       <div className="w-full max-w-[900px] bg-white rounded-[20px] px-6 pt-10 pb-8 flex flex-col shadow-sm">
         {/* ── Header ── */}
-        <h1
-          className="text-[30px] sm:text-[36px] md:text-[40px] font-bold text-[#1B2B4B] leading-tight tracking-[-0.02em] mb-2"
-          style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}>
+        <h1 className="text-[30px] sm:text-[36px] md:text-[40px] font-bold text-[#1B2B4B] leading-tight tracking-[-0.02em] mb-2 font-merriweather ">
           Tell Us About Your Interests
         </h1>
         <p className="text-[13.5px] sm:text-[14px] text-[#6B6B6B] leading-relaxed mb-7">
@@ -208,9 +209,7 @@ export default function Step2Content() {
                   : "border-[#E0DBD3] bg-white hover:border-[#B8912A]/50",
               )}>
               <span className="text-[28px]">{g.icon}</span>
-              <span
-                className="text-[14px] sm:text-[15px] font-bold text-[#1B2B4B] text-center"
-                style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}>
+              <span className="text-[14px] sm:text-[15px] font-bold text-[#1B2B4B] text-center">
                 {g.label}
               </span>
               <span className="text-[12px] text-[#888] text-center">
@@ -262,9 +261,7 @@ export default function Step2Content() {
         <div className="w-full h-px bg-[#EDE9E3] mb-7" />
 
         {/* ── Travel Style ── */}
-        <h2
-          className="text-[24px] sm:text-[28px] font-bold text-[#1B2B4B] mb-6 leading-tight"
-          style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}>
+        <h2 className="text-[24px] sm:text-[28px] font-bold text-[#1B2B4B] mb-6 leading-tight font-merriweather">
           Your Travel Style
         </h2>
 
@@ -313,9 +310,7 @@ export default function Step2Content() {
         <div className="w-full h-px bg-[#EDE9E3] mb-7" />
 
         {/* ── Why we ask ── */}
-        <h2
-          className="text-[24px] sm:text-[28px] font-bold text-[#1B2B4B] mb-2 leading-tight"
-          style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}>
+        <h2 className="text-[24px] sm:text-[28px] font-bold text-[#1B2B4B] mb-2 leading-tight font-merriweather">
           Why we ask for preferences
         </h2>
         <p className="text-[13.5px] text-[#6B6B6B] mb-4">
@@ -333,27 +328,38 @@ export default function Step2Content() {
         </ul>
 
         {/* ── Navigation ── */}
-        <div className="w-full flex items-center justify-end gap-3 pt-2">
+        <div className="w-full flex items-center justify-end gap-3">
           <Button
+            onClick={() => router.back()}
             variant="outline"
             className={cn(
               "h-[44px] sm:h-[48px] px-5 sm:px-6 rounded-[10px]",
               "border border-[#D0CBC2] bg-white text-[#1A1A1A]",
-              "text-[14px] sm:text-[14.5px] font-medium gap-2",
+              "text-[14px] sm:text-[14.5px] font-semibold gap-2",
               "hover:bg-[#F9F7F4] transition-colors duration-150 shadow-none",
             )}>
-            <ArrowLeft className="w-[14px] h-[14px]" strokeWidth={2} />
+            <ArrowLeft
+              className="w-[14px] h-[14px] sm:w-[15px] sm:h-[15px]"
+              strokeWidth={2}
+            />
             Back
           </Button>
+
           <Button
             className={cn(
               "h-[44px] sm:h-[48px] px-6 sm:px-8 rounded-[10px]",
-              "bg-[#B8912A] hover:bg-[#A37F24] text-white",
+              "bg-[#C5A065] hover:bg-[#c29753] text-white",
               "text-[14px] sm:text-[14.5px] font-semibold gap-2",
               "shadow-none transition-colors duration-150",
-            )}>
-            Next
-            <ArrowRight className="w-[14px] h-[14px]" strokeWidth={2} />
+            )}
+            asChild>
+            <Link href={"/dna/step-3"}>
+              Next
+              <ArrowRight
+                className="w-[14px] h-[14px] sm:w-[15px] sm:h-[15px]"
+                strokeWidth={2}
+              />
+            </Link>
           </Button>
         </div>
       </div>
