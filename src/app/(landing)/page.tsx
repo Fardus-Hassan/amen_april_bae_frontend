@@ -5,6 +5,7 @@ import { StoryGlimpseSection } from "@/components/landing/StoryGlimpseSection";
 import { JourneySection } from "@/components/landing/JourneySection";
 import { FeaturesSection } from "@/components/landing/FeaturesSection";
 import { HeritageExploreSection } from "@/components/landing/HeritageExploreSection";
+import { PricingSection } from "@/components/landing/PricingSection";
 
 export default function LandingPage() {
   return (
@@ -16,6 +17,7 @@ export default function LandingPage() {
       <FamilyTreeSection />
       <StoryGlimpseSection />
       <HeritageExploreSection />
+      <PricingSection />
     </>
   );
 }
