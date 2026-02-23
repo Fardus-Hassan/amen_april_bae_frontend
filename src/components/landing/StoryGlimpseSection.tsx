@@ -37,7 +37,7 @@ export function StoryGlimpseSection() {
           <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl font-merriweather">
             A Glimpse Into Your Story
           </h2>
-          <p className="mt-2 text-sm font-normal text-[#D1D5DB] sm:text-base lg:text-lg">
+          <p className="mt-2 text-sm font-normal text-primary sm:text-base lg:text-lg">
             See how we transform data into narrative
           </p>
         </motion.header>

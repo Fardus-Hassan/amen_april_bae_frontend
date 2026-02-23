@@ -4,6 +4,7 @@ import { FamilyTreeSection } from "@/components/landing/FamilyTreeSection";
 import { StoryGlimpseSection } from "@/components/landing/StoryGlimpseSection";
 import { JourneySection } from "@/components/landing/JourneySection";
 import { FeaturesSection } from "@/components/landing/FeaturesSection";
+import { HeritageExploreSection } from "@/components/landing/HeritageExploreSection";
 
 export default function LandingPage() {
   return (
@@ -11,9 +12,10 @@ export default function LandingPage() {
       <Banner />
       <StatsSection />
       <FeaturesSection />
-      <StoryGlimpseSection />
       <JourneySection />
       <FamilyTreeSection />
+      <StoryGlimpseSection />
+      <HeritageExploreSection />
     </>
   );
 }
