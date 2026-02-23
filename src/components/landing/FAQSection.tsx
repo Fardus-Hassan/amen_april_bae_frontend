@@ -51,7 +51,7 @@ export function FAQSection() {
             variants={fadeInUp}
           >
             <span
-              className="inline-block rounded-md px-4 py-2 text-xs font-semibold tracking-wide bg-landing-bg text-primary"
+              className="inline-block rounded-md px-4 py-2 text-xs font-semibold tracking-wide bg-white/50 text-primary"
             >
               FAQ
             </span>
