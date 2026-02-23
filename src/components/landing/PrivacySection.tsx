@@ -83,7 +83,7 @@ export function PrivacySection() {
                 aria-hidden
               >
                 <span className="inline-flex h-12 w-12 items-center justify-center">
-                  <Icon size={40} className="" />
+                  <Icon size={40} className="text-primary" />
                 </span>
               </div>
               <h3 className="mt-4 text-center font-merriweather text-lg font-bold text-[#1A2B4C] sm:text-xl">
