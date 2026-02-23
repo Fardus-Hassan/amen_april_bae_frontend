@@ -19,3 +19,6 @@ export { SparkIcon } from "./SparkIcon";
 export { QuoteIcon } from "./QuoteIcon";
 export { WorldIcon } from "./WorldIcon";
 export { CrownIcon } from "./CrownIcon";
+export { ArrowLeftIcon } from "./ArrowLeftIcon";
+export { StarIcon } from "./StarIcon";
+export { QuoteMarkIcon } from "./QuoteMarkIcon";

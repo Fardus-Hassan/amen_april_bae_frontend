@@ -6,6 +6,7 @@ import { JourneySection } from "@/components/landing/JourneySection";
 import { FeaturesSection } from "@/components/landing/FeaturesSection";
 import { HeritageExploreSection } from "@/components/landing/HeritageExploreSection";
 import { PricingSection } from "@/components/landing/PricingSection";
+import { TestimonialSection } from "@/components/landing/TestimonialSection";
 
 export default function LandingPage() {
   return (
@@ -18,6 +19,7 @@ export default function LandingPage() {
       <StoryGlimpseSection />
       <HeritageExploreSection />
       <PricingSection />
+      <TestimonialSection />
     </>
   );
 }
