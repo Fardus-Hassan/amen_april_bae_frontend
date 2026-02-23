@@ -8,6 +8,7 @@ import { HeritageExploreSection } from "@/components/landing/HeritageExploreSect
 import { PricingSection } from "@/components/landing/PricingSection";
 import { TestimonialSection } from "@/components/landing/TestimonialSection";
 import { PrivacySection } from "@/components/landing/PrivacySection";
+import { FAQSection } from "@/components/landing/FAQSection";
 
 export default function LandingPage() {
   return (
@@ -22,6 +23,7 @@ export default function LandingPage() {
       <PricingSection />
       <TestimonialSection />
       <PrivacySection />
+      <FAQSection />
     </>
   );
 }
