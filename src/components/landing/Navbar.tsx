@@ -21,7 +21,7 @@ const NAV_LINKS = [
 export function Navbar() {
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 w-full bg-[#FAFAFA] backdrop-blur-sm border-b border-(--landing-navy)/10"
+      className="fixed top-0 left-0 right-0 z-50 w-full bg-[#FAFAFA] backdrop-blur-sm border-b border-(--landing-navy)/10 lg:py-0 py-1"
       initial={{ opacity: 0, y: -12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}>
