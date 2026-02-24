@@ -111,13 +111,13 @@ export default function RegisterPage() {
           Sign Up
         </button>
 
-        <button
-          type="button"
+        <Link
+          href="/auth/passwordless"
           className="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white py-3 font-medium text-[#4a5568] hover:bg-gray-50 transition-colors"
         >
           <LockIcon size={18} className="shrink-0" />
           Password less sign up
-        </button>
+        </Link>
     </div>
       </form>
 
