@@ -18,7 +18,71 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { LayoutGrid, Settings, LogOut } from "lucide-react";
+
+const notifications = [
+  {
+    id: 1,
+    name: "Burkina Faso",
+    subtitle: "ConLorem Ipsum dollar",
+    message: "ConLorem Ipsum dollar sit smit ameda lor.....",
+    time: "5 mins ago",
+    avatar: "/images/profile-placeholder.jpg",
+  },
+  {
+    id: 2,
+    name: "Burkina Faso",
+    subtitle: "ConLorem Ipsum dollar",
+    message: "ConLorem Ipsum dollar sit smit ameda lor.....",
+    time: "5 mins ago",
+    avatar: "/images/profile-placeholder.jpg",
+  },
+  {
+    id: 3,
+    name: "Burkina Faso",
+    subtitle: "ConLorem Ipsum dollar",
+    message: "ConLorem Ipsum dollar sit smit ameda lor.....",
+    time: "5 mins ago",
+    avatar: "/images/profile-placeholder.jpg",
+  },
+  {
+    id: 4,
+    name: "Burkina Faso",
+    subtitle: "ConLorem Ipsum dollar",
+    message: "ConLorem Ipsum dollar sit smit ameda lor.....",
+    time: "5 mins ago",
+    avatar: "/images/profile-placeholder.jpg",
+  },
+  {
+    id: 5,
+    name: "Burkina Faso",
+    subtitle: "ConLorem Ipsum dollar",
+    message: "ConLorem Ipsum dollar sit smit ameda lor.....",
+    time: "5 mins ago",
+    avatar: "/images/profile-placeholder.jpg",
+  },
+  {
+    id: 6,
+    name: "Burkina Faso",
+    subtitle: "ConLorem Ipsum dollar",
+    message: "ConLorem Ipsum dollar sit smit ameda lor.....",
+    time: "5 mins ago",
+    avatar: "/images/profile-placeholder.jpg",
+  },
+  {
+    id: 7,
+    name: "Burkina Faso",
+    subtitle: "ConLorem Ipsum dollar",
+    message: "ConLorem Ipsum dollar sit smit ameda lor.....",
+    time: "5 mins ago",
+    avatar: "/images/profile-placeholder.jpg",
+  },
+];
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -77,15 +141,70 @@ export function Navbar() {
 
         {/* Right: icons + buttons */}
         <div className="flex items-center gap-2 sm:gap-3 xl:w-1/3 justify-end">
-          <button
-            type="button"
-            className="relative rounded-full p-2 text-landing-navy hover:bg-(--landing-navy)/10"
-            aria-label="Notifications">
-            <BellIcon size={22} />
-            <span className="absolute right-0.5 top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-red-500 px-1 text-[10px] font-semibold text-white">
-              12
-            </span>
-          </button>
+          <Popover>
+            <PopoverTrigger asChild>
+              <button
+                type="button"
+                className="relative rounded-full p-2 text-landing-navy hover:bg-(--landing-navy)/10"
+                aria-label="Notifications">
+                <BellIcon size={22} />
+                <span className="absolute right-0.5 top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-red-500 px-1 text-[10px] font-semibold text-white">
+                  12
+                </span>
+              </button>
+            </PopoverTrigger>
+            <PopoverContent
+              align="end"
+              alignOffset={-60}
+              className="w-[420px] rounded-2xl border border-gray-200 bg-white p-0 shadow-xl"
+              sideOffset={12}>
+              <div className="p-4 border-b border-gray-100">
+                <h3 className="text-xl font-semibold text-center text-gray-900">
+                  Notifications
+                </h3>
+              </div>
+              <div 
+                className="max-h-[450px] overflow-y-auto overscroll-contain scrollbar-hide"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                onWheel={(e) => e.stopPropagation()}>
+                {notifications.map((notification, index) => (
+                  <div
+                    key={notification.id}
+                    className={`flex items-start gap-3 px-4 py-4 hover:bg-gray-50 cursor-pointer transition-colors ${
+                      index !== notifications.length - 1 ? "border-b border-gray-100" : ""
+                    }`}>
+                    <div className="h-12 w-12 overflow-hidden rounded-full bg-gray-200 shrink-0">
+                      <Image
+                        src={notification.avatar}
+                        alt={notification.name}
+                        width={48}
+                        height={48}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start justify-between gap-2">
+                        <div>
+                          <p className="font-semibold text-gray-900 text-sm">
+                            {notification.name}
+                          </p>
+                          <p className="text-xs text-[#C5A065]">
+                            {notification.subtitle}
+                          </p>
+                        </div>
+                        <span className="text-xs text-gray-400 shrink-0">
+                          {notification.time}
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-600 mt-1 truncate">
+                        {notification.message}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </PopoverContent>
+          </Popover>
 
           {/* Profile — desktop only */}
           <DropdownMenu>
