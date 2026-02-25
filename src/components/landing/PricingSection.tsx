@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { CheckIcon, CrownIcon } from "@/components/icons";
 import { fadeInUp, defaultViewport } from "@/lib/motion";
+import Link from "next/link";
 
 const PLANS = [
   {
@@ -150,16 +151,16 @@ export function PricingSection() {
                   </span>
                 </div>
 
-                <button
-                  type="button"
-                  className={`mt-6 w-full rounded-full py-3.5 text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-[#1A2B4C]/30 focus:ring-offset-2 ${
+                <Link
+                  href="/dna/step-1"
+                  className={`mt-6 w-full rounded-full py-3.5 text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-[#1A2B4C]/30 focus:ring-offset-2 text-center block ${
                     plan.featured
                       ? " text-[#1A2B4C] hover:bg-[#1A2B4C] hover:text-white bg-white"
                       : "border-2 border-[#1A2B4C] bg-transparent text-[#1A2B4C] hover:bg-[#1A2B4C] hover:text-white"
                   }`}
                 >
                   {plan.cta}
-                </button>
+                </Link>
 
                 <ul
                   className={`mt-6 flex flex-1 flex-col gap-3 border-t pt-6 ${

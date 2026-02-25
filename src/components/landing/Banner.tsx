@@ -55,7 +55,7 @@ export function Banner() {
 
           <motion.div variants={fadeInUp} className="mt-8 flex flex-wrap items-center gap-3">
             <Link
-              href="/auth/register"
+              href="/dna/step-1"
               className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 md:text-sm text-xs font-semibold text-white transition hover:opacity-90"
             >
               Start Your Journey
