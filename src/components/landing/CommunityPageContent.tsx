@@ -60,17 +60,17 @@ function DocumentIcon({ className = "" }: { className?: string }) {
 export default function CommunityPageContent() {
   return (
     <div className="min-h-screen bg-[#f5f0e8] pb-12 pt-8 sm:pt-12 px-4 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-3xl">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <header className="flex items-start gap-4 sm:gap-5 mb-8 sm:mb-12">
+        <header className="flex items-center gap-4 sm:gap-5 mb-8 sm:mb-12">
           <div className="shrink-0 mt-1">
             <Image
               src="/images/tree2.png"
               alt="Heritage tree"
-              width={64}
-              height={64}
-              className="h-12 w-12 sm:h-14 sm:w-14 object-contain"
+              width={85}
+              height={120}
+              className="h-12 w-12 sm:h-[120px] sm:w-[85px] object-contain"
               priority
             />
           </div>
@@ -87,7 +87,7 @@ export default function CommunityPageContent() {
         </header>
 
         {/* Share input card */}
-        <section className="mb-8 sm:mb-10 rounded-2xl bg-white p-4 sm:p-6 shadow-[0_4px_16px_rgba(0,0,0,0.08)]">
+        <section className="mb-8 sm:mb-10 rounded-2xl bg-white p-4 sm:p-6 shadow-[0_4px_16px_rgba(0,0,0,0.08)] max-w-2xl">
           <div className="flex items-start gap-3 sm:gap-4">
             <div className="shrink-0 h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-gray-200 flex items-center justify-center text-lg font-semibold text-gray-500">
               J
@@ -149,10 +149,10 @@ export default function CommunityPageContent() {
           </p>
 
           {/* Nested heritage card */}
-          <div className="rounded-xl bg-[#e8ecf1] p-4 flex flex-col sm:flex-row gap-4 mb-6">
+          <div className="rounded-xl bg-[#F6F7F9] p-4 flex flex-col sm:flex-row gap-4 mb-6">
             <div className="shrink-0 w-full sm:w-28 h-36 sm:h-28 rounded-lg overflow-hidden bg-[#dde1e8]">
               <Image
-                src="/images/tree2.png"
+                src="/images/tree3.png"
                 alt="Ancestral tree illustration"
                 width={112}
                 height={112}
