@@ -18,7 +18,12 @@ const MapPin = () => (
   </svg>
 );
 
-const navLinks = ["Home", "Pricing", "Stories", "Contact US"];
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Community", href: "/community" },
+  { label: "Contact US", href: "/contact" },
+];
 
 export default function Footer() {
   return (
@@ -98,10 +103,10 @@ export default function Footer() {
           <nav aria-label="Footer navigation">
             <ul className="flex flex-col gap-4 list-none p-0 m-0">
               {navLinks.map((link) => (
-                <li key={link}>
-                  <a href="#" className="footer-link">
-                    {link}
-                  </a>
+                <li key={link.href}>
+                  <Link href={link.href} className="footer-link">
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -152,12 +157,12 @@ export default function Footer() {
             © 2024 - All rights Reserved
           </p>
           <div className="flex flex-wrap items-center gap-x-8 gap-y-2">
-            <a href="#" className="bottom-link">
+            <Link href="/privacy-policy" className="bottom-link">
               Privacy policy
-            </a>
-            <a href="#" className="bottom-link">
+            </Link>
+            <Link href="/terms" className="bottom-link">
               Terms and Conditions
-            </a>
+            </Link>
           </div>
         </div>
       </div>

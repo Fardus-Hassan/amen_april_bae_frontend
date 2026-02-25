@@ -11,6 +11,14 @@ import {
   SheetTrigger,
   SheetClose,
 } from "@/components/ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { LayoutGrid, Settings, LogOut } from "lucide-react";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -80,18 +88,67 @@ export function Navbar() {
           </button>
 
           {/* Profile — desktop only */}
-          <button
-            type="button"
-            className="hidden items-center gap-2 rounded-xl text-landing-navy hover:bg-white sm:flex lg:flex"
-            aria-label="Profile menu">
-            <div className="relative h-8 w-8 overflow-hidden rounded-full bg-(--landing-navy)/20">
-              <ProfileIcon
-                size={18}
-                className="absolute inset-0 m-auto text-landing-navy"
-              />
-            </div>
-            <MenuIcon size={18} />
-          </button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                type="button"
+                className="hidden items-center gap-2 rounded-xl text-landing-navy hover:bg-white sm:flex lg:flex outline-none"
+                aria-label="Profile menu">
+                <div className="relative h-8 w-8 overflow-hidden rounded-full bg-(--landing-navy)/20">
+                  <ProfileIcon
+                    size={18}
+                    className="absolute inset-0 m-auto text-landing-navy"
+                  />
+                </div>
+                <MenuIcon size={18} />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              align="end"
+              className="w-64 rounded-xl border border-gray-200 bg-white p-2 shadow-lg">
+              {/* User Info */}
+              <div className="flex items-center gap-3 px-2 py-3">
+                <div className="h-12 w-12 overflow-hidden rounded-full bg-gray-200 shrink-0">
+                  <Image
+                    src="/images/profile-placeholder.jpg"
+                    alt="Profile"
+                    width={48}
+                    height={48}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="min-w-0">
+                  <p className="font-semibold text-gray-900 truncate">Lebron James</p>
+                  <p className="text-sm text-gray-500 truncate">lebronjames003@gmail.com</p>
+                </div>
+              </div>
+              <DropdownMenuSeparator className="my-1" />
+              <DropdownMenuItem asChild>
+                <Link
+                  href="/community"
+                  className="flex items-center gap-3 px-2 py-2.5 text-sm text-gray-700 rounded-lg cursor-pointer hover:bg-gray-50">
+                  <LayoutGrid className="h-4 w-4 text-gray-500" />
+                  Community
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link
+                  href="/dashboard/user/my-profile"
+                  className="flex items-center gap-3 px-2 py-2.5 text-sm text-gray-700 rounded-lg cursor-pointer hover:bg-gray-50">
+                  <Settings className="h-4 w-4 text-gray-500" />
+                  My Profile
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <button
+                  type="button"
+                  className="flex w-full items-center gap-3 px-2 py-2.5 text-sm text-red-500 rounded-lg cursor-pointer hover:bg-red-50">
+                  <LogOut className="h-4 w-4" />
+                  Log out
+                </button>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           {/* Sign Up — desktop only */}
           <Link
