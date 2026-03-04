@@ -61,7 +61,7 @@ export function CTASection() {
           variants={fadeInUp}
         >
           <a
-            href="#"
+            href="/dna/step-1"
             className="inline-flex w-full min-w-[150px] items-center justify-center gap-2 rounded-full bg-[#C5A065] px-5 py-3.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-[#B8935A] sm:w-auto sm:px-7 sm:py-4 sm:text-base"
           >
             Start Your Journey
