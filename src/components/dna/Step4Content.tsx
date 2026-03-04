@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
+import { useRouter } from "next/navigation";
 import {
   Check,
   ChevronDown,
@@ -288,6 +289,7 @@ const INITIAL: Record<string, boolean> = {
 };
 
 export default function Step4Content() {
+  const router = useRouter();
   const [map, setMap] = useState(INITIAL);
   const toggle = (id: string) => setMap((p) => ({ ...p, [id]: !p[id] }));
 
@@ -665,6 +667,7 @@ export default function Step4Content() {
           </button>
           <button
             type="button"
+            onClick={() => router.push("/dna/step-5")}
             className="h-[44px] px-[24px] rounded-[10px] bg-[#B8912A] hover:bg-[#A37F24] text-white text-[13.5px] font-semibold flex items-center gap-2 transition-colors shadow-sm">
             I Agree & Continue
             <ArrowRight className="w-[14px] h-[14px]" strokeWidth={2} />
